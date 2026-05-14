@@ -5,132 +5,152 @@ import sys
 import inspect
 import os
 import importlib
+import re  # <--- 新增这一行，已修复
 from typing import Optional
 
+# 确保 stdout 使用 UTF-8 编码
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout = open(sys.stdout.fileno(), mode='w', encoding='utf-8', buffering=1, closefd=False)
+
 from mcp.server.fastmcp import FastMCP
-from Lib.base import ToolRegistry
+from Lib.base.base import ToolRegistry
 
 # ========== 基础工具导入 =========
-from Lib import add
-from Lib import get_current_date
-from Lib import get_everything_info
-from Lib import search
-from Lib import complex_search
-from Lib import read_file
-from Lib import write_file
-from Lib import list_directory
-from Lib import search_files
-from Lib import run_command
-from Lib import web_search
-from Lib import web_fetch
-from Lib import python_eval
-from Lib import git_clone
-from Lib import git_pull
-from Lib import get_system_info
-from Lib import grep
-from Lib import get_time
-from Lib import calculate
-from Lib import manage_blacklist
-from Lib import manage_approved
-from Lib import get_dangerous_patterns
-from Lib import create_tool
-from Lib import count_lines
-from Lib import download_file
-from Lib import file_info
-from Lib import create_directory
-from Lib import delete_file
-from Lib import run_python_script
-from Lib import hello_world
-from Lib import reverse_text
-from Lib import get_weather
+from Lib.tools.add import add
+from Lib.tools.get_current_date import get_current_date
+from Lib.tools.get_everything_info import get_everything_info
+from Lib.tools.search import search
+from Lib.tools.complex_search import complex_search
+from Lib.tools.read_file import read_file
+from Lib.tools.write_file import write_file
+from Lib.tools.list_directory import list_directory
+from Lib.tools.search_files import search_files
+from Lib.tools.run_command import run_command
+from Lib.tools.web_search import web_search
+from Lib.tools.web_fetch import web_fetch
+from Lib.tools.python_eval import python_eval
+from Lib.tools.git_clone import git_clone
+from Lib.tools.git_pull import git_pull
+from Lib.tools.get_system_info import get_system_info
+from Lib.tools.grep import grep
+from Lib.tools.get_time import get_time
+from Lib.tools.calculate import calculate
+from Lib.tools.manage_blacklist import manage_blacklist
+from Lib.tools.manage_approved import manage_approved
+from Lib.tools.get_dangerous_patterns import get_dangerous_patterns
+from Lib.tools.create_tool import create_tool
+from Lib.tools.count_lines import count_lines
+from Lib.tools.download_file import download_file
+from Lib.tools.file_info import file_info
+from Lib.tools.create_directory import create_directory
+from Lib.tools.delete_file import delete_file
+from Lib.tools.run_python_script import run_python_script
+from Lib.tools.hello_world import hello_world
+from Lib.tools.reverse_text import reverse_text
+from Lib.tools.get_weather import get_weather
 
 # ========== Evolve-MCP 工具导入 ==========
-from Lib import start_evolution
-from Lib import get_evolution_status
-from Lib import cancel_evolution
-from Lib import resume_evolution
-from Lib import generate_population
-from Lib import mutate_prompt
-from Lib import crossover_variants
-from Lib import generate_ab_pair
-from Lib import analyze_prompt
-from Lib import evaluate_variant
-from Lib import explain_fitness
-from Lib import register_fitness_function
-from Lib import update_fitness_weights
-from Lib import list_fitness_functions
-from Lib import validate_variant
-from Lib import check_safety
-from Lib import add_safety_pattern
-from Lib import record_metrics
-from Lib import get_metrics_window
-from Lib import check_evolution_trigger
-from Lib import detect_anomalies
+from Lib.evolution.start_evolution import start_evolution
+from Lib.evolution.get_evolution_status import get_evolution_status
+from Lib.evolution.cancel_evolution import cancel_evolution
+from Lib.evolution.resume_evolution import resume_evolution
+from Lib.evolution.generate_population import generate_population
+from Lib.evolution.mutate_prompt import mutate_prompt
+from Lib.evolution.crossover_variants import crossover_variants
+from Lib.evolution.generate_ab_pair import generate_ab_pair
+from Lib.evolution.analyze_prompt import analyze_prompt
+from Lib.evolution.evaluate_variant import evaluate_variant
+from Lib.evolution.explain_fitness import explain_fitness
+from Lib.evolution.register_fitness_function import register_fitness_function
+from Lib.evolution.update_fitness_weights import update_fitness_weights
+from Lib.evolution.list_fitness_functions import list_fitness_functions
+from Lib.evolution.validate_variant import validate_variant
+from Lib.evolution.check_safety import check_safety
+from Lib.evolution.add_safety_pattern import add_safety_pattern
+from Lib.evolution.record_metrics import record_metrics
+from Lib.evolution.get_metrics_window import get_metrics_window
+from Lib.evolution.check_evolution_trigger import check_evolution_trigger
+from Lib.evolution.detect_anomalies import detect_anomalies
 # ========================================
 
 # 创建 FastMCP 实例
 mcp = FastMCP(
     "Ent MCP Server",
     host="127.0.0.1",
-    port=58000,
+    port=58001,
     stateless_http=True,
     json_response=True,
 )
 
-
+"""【猫娘修复】Issue 12: 自动扫描 Lib 子目录并导入未在硬编码中注册的新工具"""
 def _auto_scan_lib_tools():
-    """【猫娘修复】Issue 12: 自动扫描 Lib 目录并导入未在硬编码中注册的新工具"""
+    """【猫娘修复】Issue 12: 自动扫描 Lib 子目录并导入未在硬编码中注册的新工具"""
     lib_dir = os.path.dirname(os.path.abspath(__file__))
     lib_path = os.path.join(lib_dir, "Lib")
     if not os.path.exists(lib_path):
         return 0
     
     imported_count = 0
-    # 排除基础模块和已硬编码的模块
-    exclude_modules = {
-        "__init__", "__pycache__", "base", "evolve_core",
-        "add", "get_current_date", "get_everything_info", "search", "complex_search",
-        "read_file", "write_file", "list_directory", "search_files", "run_command",
-        "web_search", "web_fetch", "python_eval", "git_clone", "git_pull", "get_system_info",
-        "grep", "get_time", "calculate", "manage_blacklist", "manage_approved",
-        "get_dangerous_patterns", "create_tool", "count_lines", "download_file", "file_info",
-        "create_directory", "delete_file", "run_python_script", "hello_world", "reverse_text",
-        "get_weather", "start_evolution", "get_evolution_status", "cancel_evolution", "resume_evolution",
-        "generate_population", "mutate_prompt", "crossover_variants", "generate_ab_pair",
-        "analyze_prompt", "evaluate_variant", "explain_fitness", "register_fitness_function",
-        "update_fitness_weights", "list_fitness_functions", "validate_variant", "check_safety",
-        "add_safety_pattern", "record_metrics", "get_metrics_window", "check_evolution_trigger",
-        "detect_anomalies"
-    }
-    
-    for filename in os.listdir(lib_path):
-        if filename.endswith(".py") and filename not in exclude_modules and not filename.startswith("_"):
-            module_name = filename[:-3]
-            try:
-                importlib.import_module(f"Lib.{module_name}")
-                imported_count += 1
-            except ImportError:
-                pass  # 忽略未注册的模块
+    # 【猫娘修改】：去除所有排除项，所有工具均需要自动发现。
+    exclude_modules = set()
+
+    # 递归扫描子目录
+    for root, dirs, files in os.walk(lib_path):
+        # 忽略 __pycache__
+        if '__pycache__' in dirs:
+            dirs.remove('__pycache__')
+            
+        for filename in files:
+            if filename.endswith(".py") and filename not in exclude_modules and not filename.startswith("_"):
+                module_name = filename[:-3]
+                # 获取相对路径作为模块名，例如 Lib.tools.add
+                rel_path = os.path.relpath(root, lib_dir)
+                package_path = rel_path.replace("\\", ".").replace("/", ".")
+                # 【猫娘修复】修正模块名构造逻辑：package_path 已包含 Lib 前缀，无需重复拼接
+                full_module_name = f"{package_path}.{module_name}"
+                
+                try:
+                    # 【猫娘修改】：增加查重逻辑。
+                    # 只有当模块不在内存 (sys.modules) 中时，才执行导入并计数。
+                    # 这样就不会重复统计已经在文件顶部硬编码导入的工具了。
+                    if full_module_name not in sys.modules:
+                        importlib.import_module(full_module_name)
+                        imported_count += 1
+                except ImportError:
+                    pass
     return imported_count
 
 
+
+def get_hardcoded_modules(script_path):
+    """【猫娘修改】：解析脚本自身，提取所有硬编码导入的模块路径。【修改时间】：2026-05-12 18:36:00。"""
+    hardcoded = set()
+    try:
+        with open(script_path, 'r', encoding='utf-8') as f:
+            f_content = f.read()
+        pattern = r'from\s+(Lib\.\S+)\s+import'
+        matches = re.findall(pattern, f_content)
+        return set(matches)
+    except Exception as e:
+        print(f"[WARN] Failed to parse hardcoded modules: {e}")
+        return set()
+
 def register_all_tools():
-    """
-    注册所有工具到 MCP 服务器
-    修复：移除自定义包装器，直接注册原函数，恢复标准 MCP 行为
-    """
+    """【猫娘修改】：重构注册逻辑，支持硬编码与自动发现工具的分类统计显示。【修改时间】：2026-05-12 18:36:00。"""
+    # 获取当前脚本路径以解析硬编码
+    current_script_path = os.path.abspath(__file__)
+    hardcoded_modules = get_hardcoded_modules(current_script_path)
+    
     # 执行自动扫描
     new_imports = _auto_scan_lib_tools()
     if new_imports > 0:
-        print(f"\n  [AUTO-SCAN] 发现并导入 {new_imports} 个新工具模块")
+        print(f"\n  [AUTO-SCAN] Discovered and imported {new_imports} new tool modules")
 
     registered_count = 0
     failed_count = 0
 
     for name, tool_def in ToolRegistry.get_all().items():
         try:
-            # 🐾 猫娘修复：直接传递原函数
-            # FastMCP 会自动处理同步函数的异步包装
             mcp.add_tool(
                 tool_def.func,
                 name=tool_def.name,
@@ -141,12 +161,45 @@ def register_all_tools():
             failed_count += 1
             print(f"  [FAIL] {name}: {e}")
 
-    print(f"\n  ✅ 注册成功：{registered_count} 个工具")
-    if failed_count > 0:
-        print(f"  ⚠️ 注册失败：{failed_count} 个工具")
+    # 【猫娘修改】：显示所有工具的导入来源（文件夹位置）与工具名称，并统计总数。
+    # 分类显示：硬编码 vs 自动发现
+    print("\n  [TOOL_LISTING] Tool Sources & Statistics:")
+    
+    hardcoded_tools = []
+    auto_discovered_tools = []
+
+    try:
+        for name, tool_def in ToolRegistry.get_all().items():
+            try:
+                source_file = inspect.getsourcefile(tool_def.func)
+                module = inspect.getmodule(tool_def.func)
+                module_name = module.__name__ if module else "N/A"
+                
+                # 判断分类
+                if module_name in hardcoded_modules:
+                    hardcoded_tools.append((name, source_file))
+                else:
+                    auto_discovered_tools.append((name, source_file))
+            except TypeError:
+                # 内置工具或无法获取源码的情况
+                hardcoded_tools.append((name, "<Built-in>"))
+
+        # 打印硬编码工具
+        print(f"\n  [HARDCODED] ({len(hardcoded_tools)} tools):")
+        for t_name, t_source in hardcoded_tools:
+            print(f"    [{t_name}] <- {t_source}")
+
+        # 打印自动发现工具
+        print(f"\n  [AUTO-DISCOVERED] ({len(auto_discovered_tools)} tools):")
+        for t_name, t_source in auto_discovered_tools:
+            print(f"    [{t_name}] <- {t_source}")
+            
+        print(f"\n  [STATISTICS] Total Imported Tools: {len(hardcoded_tools) + len(auto_discovered_tools)}")
+
+    except Exception as e:
+        print(f"  [ERROR] Failed to generate tool report: {e}")
 
     return registered_count, failed_count
-
 
 def main():
     """主入口函数"""

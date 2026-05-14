@@ -18,6 +18,7 @@
 
 ---
 
+
 ## 🗂 目录结构
 
 ```
@@ -29,27 +30,67 @@ E:\Codes\AI Related\MCP Server\
 ├── .gitignore                      # Git 忽略规则
 ├── evolve-mcp 重写说明.md          # evolve-mcp 功能重写文档
 ├── README.md                       # 项目说明文档（本文件）
-├── Lib/                            # 工具模块目录（74 个工具）
+├── Lib/                            # 工具模块目录（重构后）
 │   ├── __init__.py                 # 初始化
-│   ├── base.py                     # 基础架构：工具装饰器、缓存机制、注册表
-│   ├── evolve_core.py              # 进化核心：变异生成器、适应度评估、安全验证、指标收集
-│   ├── evolution_state.json        # 进化状态持久化文件（JSON 增量索引）
-│   ├── fanqie_api.py               # 番茄小说：核心 API 交互
-│   ├── fanqie_book.py              # 番茄小说：书籍信息获取
-│   ├── fanqie_config.py            # 番茄小说：配置管理
-│   ├── fanqie_content.py           # 番茄小说：内容获取与解析
-│   ├── fanqie_misc.py              # 番茄小说：杂项功能
-│   ├── fanqie_search.py            # 番茄小说：搜索功能
-│   ├── netease_config.py           # 网易云音乐：配置与控制器状态
-│   ├── netease_control.py          # 网易云音乐：基础控制（播放/音量/快捷键）
-│   ├── netease_daily.py            # 网易云音乐：每日推荐与私人漫游（Selenium）
-│   ├── netease_playlist.py         # 网易云音乐：歌单管理
-│   ├── netease_search.py           # 网易云音乐：搜索与播放
-│   └── [55 个工具文件]             # 每个工具独立文件，职责单一
+│   ├── base/                       # 基础架构模块
+│   │   ├── __init__.py
+│   │   └── base.py                 # 基础工具装饰器、缓存机制、注册表
+│   ├── evolution/                  # 进化引擎模块
+│   │   ├── __init__.py
+│   │   ├── evolve_core.py          # 进化核心：变异生成器、适应度评估、安全验证、指标收集
+│   │   └── evolution_state.json    # 进化状态持久化文件（JSON 增量索引）
+│   ├── fanqie/                     # 番茄小说工具
+│   │   ├── __init__.py
+│   │   ├── fanqie_api.py           # 番茄小说：核心 API 交互
+│   │   ├── fanqie_book.py          # 番茄小说：书籍信息获取
+│   │   ├── fanqie_config.py        # 番茄小说：配置管理
+│   │   ├── fanqie_content.py       # 番茄小说：内容获取与解析
+│   │   ├── fanqie_misc.py          # 番茄小说：杂项功能
+│   │   └── fanqie_search.py        # 番茄小说：搜索功能
+│   ├── netease/                    # 网易云音乐工具
+│   │   ├── __init__.py
+│   │   ├── netease_config.py       # 网易云音乐：配置与控制器状态
+│   │   ├── netease_control.py      # 网易云音乐：基础控制（播放/音量/快捷键）
+│   │   ├── netease_daily.py        # 网易云音乐：每日推荐与私人漫游（Selenium）
+│   │   ├── netease_playlist.py     # 网易云音乐：歌单管理
+│   │   └── netease_search.py       # 网易云音乐：搜索与播放
+│   └── tools/                      # 通用工具集
+│       ├── __init__.py
+│       ├── add.py                  # 基础数学
+│       ├── calculate.py            # 数学表达式计算
+│       ├── count_lines.py          # 统计代码行数
+│       ├── create_directory.py     # 创建目录
+│       ├── create_tool.py          # 动态创建 MCP 工具
+│       ├── delete_file.py          # 删除文件
+│       ├── download_file.py        # 下载文件
+│       ├── file_info.py            # 获取文件元数据
+│       ├── get_current_date.py     # 获取当前日期
+│       ├── get_dangerous_patterns.py # 获取危险命令模式
+│       ├── get_everything_info.py  # 获取 Everything 状态信息
+│       ├── get_system_info.py      # 获取系统信息
+│       ├── get_time.py             # 获取当前时间
+│       ├── get_weather.py          # 获取城市天气
+│       ├── git_clone.py            # 克隆 Git 仓库
+│       ├── git_pull.py             # 拉取远程更新
+│       ├── grep.py                 # 文本模式搜索
+│       ├── hello_world.py          # 问候语示例
+│       ├── list_directory.py       # 列出目录内容
+│       ├── manage_approved.py      # 管理已批准命令
+│       ├── manage_blacklist.py     # 管理命令黑名单
+│       ├── python_eval.py          # 执行 Python 代码片段
+│       ├── read_file.py            # 读取文件内容
+│       ├── run_command.py          # 执行 Shell 命令
+│       ├── run_python_script.py    # 执行 Python 脚本
+│       ├── search.py               # Everything 搜索引擎
+│       ├── complex_search.py       # 复杂组合搜索
+│       ├── search_files.py         # 通配符搜索文件
+│       ├── web_fetch.py            # 抓取网页内容
+│       ├── web_search.py           # 网络搜索
+│       ├── write_file.py           # 写入文件内容
+│       └── reverse_text.py         # 字符串反转
 └── __pycache__/                    # Python 字节码缓存（自动）
 ```
 
----
 
 ## 🔧 核心模块
 
@@ -392,5 +433,5 @@ start_evolution() 触发
 
 ---
 
-**最后更新**: 2026-05-07  
+**最后更新**: 2026-05-11  
 **项目维护**: 风见魅铃的猫娘 (猫娘修改标注)
