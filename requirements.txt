@@ -1,0 +1,23 @@
+# MCP Server 依赖清单
+
+# 核心框架
+mcp
+
+# Everything 搜索支持
+everytools
+
+# Web 搜索与下载
+ddgs
+httpx
+selectolax
+
+# 番茄小说 MCP 服务依赖 (FanQie Integration)
+requests
+
+# 网易云音乐依赖
+pyautogui>=0.9.54
+selenium>=4.0.0
+psutil>=5.9.0
+pywin32>=306
+
+

@@ -1,0 +1,1617 @@
+{
+  "schema_version": 2,
+  "current_cycle_id": null,
+  "cycles": {
+    "cycle_c4c30b1e": {
+      "cycle_id": "cycle_c4c30b1e",
+      "status": "cancelled",
+      "trigger_type": "manual",
+      "config": {
+        "population_size": 50,
+        "max_generations": 10,
+        "fitness_threshold": 0.95
+      },
+      "population": [],
+      "current_generation": 1,
+      "fitness_history": [
+        {
+          "generation": 1,
+          "best_fitness": 0.7075973851363633,
+          "avg_fitness": 0.5801456380348854
+        }
+      ],
+      "started_at": "2026-05-06T02:04:45.727472",
+      "variants_data": {
+        "3ae84c5b-db4b-4567-9057-9f04749b968c": {
+          "id": "3ae84c5b-db4b-4567-9057-9f04749b968c",
+          "generation": 0,
+          "fitness_score": 0.7075973851363633,
+          "parent_ids": [
+            "35ef15e7-b1cf-429f-a1b9-94ae7c4b6bdd"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:45.728189",
+          "is_valid": true
+        },
+        "7440ad77-e096-4dfe-8569-fc4c3f1bf977": {
+          "id": "7440ad77-e096-4dfe-8569-fc4c3f1bf977",
+          "generation": 0,
+          "fitness_score": 0.7070926394758178,
+          "parent_ids": [
+            "35ef15e7-b1cf-429f-a1b9-94ae7c4b6bdd"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:45.728196",
+          "is_valid": true
+        },
+        "7217c2d3-77df-4f55-83ff-f2f14300f7d7": {
+          "id": "7217c2d3-77df-4f55-83ff-f2f14300f7d7",
+          "generation": 0,
+          "fitness_score": 0.7068683127375371,
+          "parent_ids": [
+            "35ef15e7-b1cf-429f-a1b9-94ae7c4b6bdd"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:45.728135",
+          "is_valid": true
+        },
+        "ed90b52b-318d-4a1a-b728-f5b9b3103569": {
+          "id": "ed90b52b-318d-4a1a-b728-f5b9b3103569",
+          "generation": 0,
+          "fitness_score": 0.6999657768968496,
+          "parent_ids": [
+            "35ef15e7-b1cf-429f-a1b9-94ae7c4b6bdd"
+          ],
+          "configuration": {
+            "temperature": 0.68
+          },
+          "created_at": "2026-05-06 02:04:45.728175",
+          "is_valid": true
+        },
+        "a0d1d6a2-494f-4367-b8f8-78ec7f35f990": {
+          "id": "a0d1d6a2-494f-4367-b8f8-78ec7f35f990",
+          "generation": 0,
+          "fitness_score": 0.6956012810541403,
+          "parent_ids": [
+            "35ef15e7-b1cf-429f-a1b9-94ae7c4b6bdd"
+          ],
+          "configuration": {
+            "temperature": 0.72
+          },
+          "created_at": "2026-05-06 02:04:45.728158",
+          "is_valid": true
+        },
+        "30134626-2f92-43ff-8de4-540a183d056c": {
+          "id": "30134626-2f92-43ff-8de4-540a183d056c",
+          "generation": 0,
+          "fitness_score": 0.6822570951506638,
+          "parent_ids": [
+            "35ef15e7-b1cf-429f-a1b9-94ae7c4b6bdd"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:45.728131",
+          "is_valid": true
+        },
+        "12cc152a-1cff-4063-98b5-97db46f8837a": {
+          "id": "12cc152a-1cff-4063-98b5-97db46f8837a",
+          "generation": 0,
+          "fitness_score": 0.6800264182762983,
+          "parent_ids": [
+            "35ef15e7-b1cf-429f-a1b9-94ae7c4b6bdd"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:45.728182",
+          "is_valid": true
+        },
+        "ac779043-f0d4-412f-877b-12cdd814f7d6": {
+          "id": "ac779043-f0d4-412f-877b-12cdd814f7d6",
+          "generation": 0,
+          "fitness_score": 0.6506887396625828,
+          "parent_ids": [
+            "35ef15e7-b1cf-429f-a1b9-94ae7c4b6bdd"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:45.728208",
+          "is_valid": true
+        },
+        "6907974b-aac0-44ec-8196-cff77a0173ab": {
+          "id": "6907974b-aac0-44ec-8196-cff77a0173ab",
+          "generation": 0,
+          "fitness_score": 0.6381690076105436,
+          "parent_ids": [
+            "35ef15e7-b1cf-429f-a1b9-94ae7c4b6bdd"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:45.728187",
+          "is_valid": true
+        },
+        "12707eb4-5b25-4864-b3e1-f02b4a5307dc": {
+          "id": "12707eb4-5b25-4864-b3e1-f02b4a5307dc",
+          "generation": 0,
+          "fitness_score": 0.6368789328520026,
+          "parent_ids": [
+            "35ef15e7-b1cf-429f-a1b9-94ae7c4b6bdd"
+          ],
+          "configuration": {
+            "temperature": 0.77
+          },
+          "created_at": "2026-05-06 02:04:45.728178",
+          "is_valid": true
+        },
+        "5daece19-04e6-4cd4-bbd8-43f53f9f8731": {
+          "id": "5daece19-04e6-4cd4-bbd8-43f53f9f8731",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "7440ad77-e096-4dfe-8569-fc4c3f1bf977"
+          ],
+          "configuration": {
+            "temperature": 0.66
+          },
+          "created_at": "2026-05-06 02:04:45.728483",
+          "is_valid": true
+        },
+        "ad8c039e-635d-46c8-b99e-f676271b3e0d": {
+          "id": "ad8c039e-635d-46c8-b99e-f676271b3e0d",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "7217c2d3-77df-4f55-83ff-f2f14300f7d7"
+          ],
+          "configuration": {
+            "temperature": 0.63
+          },
+          "created_at": "2026-05-06 02:04:45.728489",
+          "is_valid": true
+        },
+        "eb43013a-610f-4ae7-bc27-8dcdbeb4284f": {
+          "id": "eb43013a-610f-4ae7-bc27-8dcdbeb4284f",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "ed90b52b-318d-4a1a-b728-f5b9b3103569"
+          ],
+          "configuration": {
+            "temperature": 0.63
+          },
+          "created_at": "2026-05-06 02:04:45.728493",
+          "is_valid": true
+        },
+        "4ae27291-a625-445a-acdb-ca6a439bde97": {
+          "id": "4ae27291-a625-445a-acdb-ca6a439bde97",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "a0d1d6a2-494f-4367-b8f8-78ec7f35f990"
+          ],
+          "configuration": {
+            "temperature": 0.62
+          },
+          "created_at": "2026-05-06 02:04:45.728496",
+          "is_valid": true
+        },
+        "0c8a98a0-4941-41b9-8a2a-220002ac4ecf": {
+          "id": "0c8a98a0-4941-41b9-8a2a-220002ac4ecf",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "30134626-2f92-43ff-8de4-540a183d056c"
+          ],
+          "configuration": {
+            "temperature": 0.65
+          },
+          "created_at": "2026-05-06 02:04:45.728498",
+          "is_valid": true
+        },
+        "48e472d9-0717-4c78-a3bd-720fa489da0c": {
+          "id": "48e472d9-0717-4c78-a3bd-720fa489da0c",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "12cc152a-1cff-4063-98b5-97db46f8837a"
+          ],
+          "configuration": {
+            "temperature": 0.54
+          },
+          "created_at": "2026-05-06 02:04:45.728501",
+          "is_valid": true
+        },
+        "a73d0b37-e43e-4258-91d9-737a414a5af6": {
+          "id": "a73d0b37-e43e-4258-91d9-737a414a5af6",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "ac779043-f0d4-412f-877b-12cdd814f7d6"
+          ],
+          "configuration": {
+            "temperature": 0.64
+          },
+          "created_at": "2026-05-06 02:04:45.728504",
+          "is_valid": true
+        },
+        "65776025-34a9-460a-b57c-b49bffcb855f": {
+          "id": "65776025-34a9-460a-b57c-b49bffcb855f",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "6907974b-aac0-44ec-8196-cff77a0173ab"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:45.728506",
+          "is_valid": true
+        },
+        "a34aaf96-4b24-4ec9-9f33-c5c17396e3f4": {
+          "id": "a34aaf96-4b24-4ec9-9f33-c5c17396e3f4",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "12707eb4-5b25-4864-b3e1-f02b4a5307dc"
+          ],
+          "configuration": {
+            "temperature": 0.68
+          },
+          "created_at": "2026-05-06 02:04:45.728509",
+          "is_valid": true
+        }
+      }
+    },
+    "cycle_4f659c30": {
+      "cycle_id": "cycle_4f659c30",
+      "status": "cancelled",
+      "trigger_type": "manual",
+      "config": {
+        "population_size": 50,
+        "max_generations": 10,
+        "fitness_threshold": 0.95
+      },
+      "population": [],
+      "current_generation": 1,
+      "fitness_history": [
+        {
+          "generation": 1,
+          "best_fitness": 0.7179566283489913,
+          "avg_fitness": 0.5866678894186005
+        }
+      ],
+      "started_at": "2026-05-06T02:04:52.831505",
+      "variants_data": {
+        "90b8636b-70ff-470a-a650-a2b46e3c3419": {
+          "id": "90b8636b-70ff-470a-a650-a2b46e3c3419",
+          "generation": 0,
+          "fitness_score": 0.7179566283489913,
+          "parent_ids": [
+            "911d3760-0153-430d-a516-59832f615a12"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:52.832570",
+          "is_valid": true
+        },
+        "d630655a-192c-4ba3-a9a6-c4cb979e4a0b": {
+          "id": "d630655a-192c-4ba3-a9a6-c4cb979e4a0b",
+          "generation": 0,
+          "fitness_score": 0.6913628184236108,
+          "parent_ids": [
+            "911d3760-0153-430d-a516-59832f615a12"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:52.832567",
+          "is_valid": true
+        },
+        "39a1425e-c9ac-4ab2-b634-c45ded582158": {
+          "id": "39a1425e-c9ac-4ab2-b634-c45ded582158",
+          "generation": 0,
+          "fitness_score": 0.6908368266426721,
+          "parent_ids": [
+            "911d3760-0153-430d-a516-59832f615a12"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:52.832472",
+          "is_valid": true
+        },
+        "1fb77cac-9a46-4883-8e32-89891a3ae51f": {
+          "id": "1fb77cac-9a46-4883-8e32-89891a3ae51f",
+          "generation": 0,
+          "fitness_score": 0.6860404031361427,
+          "parent_ids": [
+            "911d3760-0153-430d-a516-59832f615a12"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:52.832485",
+          "is_valid": true
+        },
+        "4789b7b8-56fb-4958-8184-9faf3ef99c6f": {
+          "id": "4789b7b8-56fb-4958-8184-9faf3ef99c6f",
+          "generation": 0,
+          "fitness_score": 0.6678674976170017,
+          "parent_ids": [
+            "911d3760-0153-430d-a516-59832f615a12"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:52.832530",
+          "is_valid": true
+        },
+        "80a9046b-26a7-427d-ba50-fe21bd449acf": {
+          "id": "80a9046b-26a7-427d-ba50-fe21bd449acf",
+          "generation": 0,
+          "fitness_score": 0.6627842128411718,
+          "parent_ids": [
+            "911d3760-0153-430d-a516-59832f615a12"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:52.832517",
+          "is_valid": true
+        },
+        "77951bcc-b0c9-41de-95ce-3eb971a7a33b": {
+          "id": "77951bcc-b0c9-41de-95ce-3eb971a7a33b",
+          "generation": 0,
+          "fitness_score": 0.6562326556216103,
+          "parent_ids": [
+            "911d3760-0153-430d-a516-59832f615a12"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:52.832446",
+          "is_valid": true
+        },
+        "3f543ba9-019e-464a-87c8-9faf2bc2eaa0": {
+          "id": "3f543ba9-019e-464a-87c8-9faf2bc2eaa0",
+          "generation": 0,
+          "fitness_score": 0.6540082130721,
+          "parent_ids": [
+            "911d3760-0153-430d-a516-59832f615a12"
+          ],
+          "configuration": {
+            "temperature": 0.56
+          },
+          "created_at": "2026-05-06 02:04:52.832501",
+          "is_valid": true
+        },
+        "af6428e8-ec30-428b-aaa8-ae55f6aa0d07": {
+          "id": "af6428e8-ec30-428b-aaa8-ae55f6aa0d07",
+          "generation": 0,
+          "fitness_score": 0.6520111700505269,
+          "parent_ids": [
+            "911d3760-0153-430d-a516-59832f615a12"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:52.832441",
+          "is_valid": true
+        },
+        "e570ceca-eebe-440b-923e-4926a9671a91": {
+          "id": "e570ceca-eebe-440b-923e-4926a9671a91",
+          "generation": 0,
+          "fitness_score": 0.6458533055237617,
+          "parent_ids": [
+            "911d3760-0153-430d-a516-59832f615a12"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 02:04:52.832470",
+          "is_valid": true
+        },
+        "ab1d8d38-cf4f-451c-92ee-da23c58a8ecb": {
+          "id": "ab1d8d38-cf4f-451c-92ee-da23c58a8ecb",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "d630655a-192c-4ba3-a9a6-c4cb979e4a0b"
+          ],
+          "configuration": {
+            "temperature": 0.61
+          },
+          "created_at": "2026-05-06 02:04:52.832831",
+          "is_valid": true
+        },
+        "c4de161b-e094-4e81-8106-2a3e8f00e9e1": {
+          "id": "c4de161b-e094-4e81-8106-2a3e8f00e9e1",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "39a1425e-c9ac-4ab2-b634-c45ded582158"
+          ],
+          "configuration": {
+            "temperature": 0.52
+          },
+          "created_at": "2026-05-06 02:04:52.832835",
+          "is_valid": true
+        },
+        "d303c3cd-92cd-475f-acbb-29ef3a48d175": {
+          "id": "d303c3cd-92cd-475f-acbb-29ef3a48d175",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "1fb77cac-9a46-4883-8e32-89891a3ae51f"
+          ],
+          "configuration": {
+            "temperature": 0.77
+          },
+          "created_at": "2026-05-06 02:04:52.832840",
+          "is_valid": true
+        },
+        "a8ef09d0-2ef4-4d57-b826-fbf017a81f6c": {
+          "id": "a8ef09d0-2ef4-4d57-b826-fbf017a81f6c",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "4789b7b8-56fb-4958-8184-9faf3ef99c6f"
+          ],
+          "configuration": {
+            "temperature": 0.61
+          },
+          "created_at": "2026-05-06 02:04:52.832844",
+          "is_valid": true
+        },
+        "7f7d5e90-a521-4c63-8240-17b3179b65f2": {
+          "id": "7f7d5e90-a521-4c63-8240-17b3179b65f2",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "80a9046b-26a7-427d-ba50-fe21bd449acf"
+          ],
+          "configuration": {
+            "temperature": 0.78
+          },
+          "created_at": "2026-05-06 02:04:52.832848",
+          "is_valid": true
+        },
+        "c5b6cef8-a101-4838-82f6-fa391c7e2b7a": {
+          "id": "c5b6cef8-a101-4838-82f6-fa391c7e2b7a",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "77951bcc-b0c9-41de-95ce-3eb971a7a33b"
+          ],
+          "configuration": {
+            "temperature": 0.79
+          },
+          "created_at": "2026-05-06 02:04:52.832852",
+          "is_valid": true
+        },
+        "2006ad43-625a-453e-b152-544429e9187e": {
+          "id": "2006ad43-625a-453e-b152-544429e9187e",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "3f543ba9-019e-464a-87c8-9faf2bc2eaa0"
+          ],
+          "configuration": {
+            "temperature": 0.52
+          },
+          "created_at": "2026-05-06 02:04:52.832855",
+          "is_valid": true
+        },
+        "890e9f68-296d-4204-9bc8-1a878ee7485c": {
+          "id": "890e9f68-296d-4204-9bc8-1a878ee7485c",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "af6428e8-ec30-428b-aaa8-ae55f6aa0d07"
+          ],
+          "configuration": {
+            "temperature": 0.52
+          },
+          "created_at": "2026-05-06 02:04:52.832860",
+          "is_valid": true
+        },
+        "230fda55-3706-44a1-9a5b-4720f8ac936e": {
+          "id": "230fda55-3706-44a1-9a5b-4720f8ac936e",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "e570ceca-eebe-440b-923e-4926a9671a91"
+          ],
+          "configuration": {
+            "temperature": 0.69
+          },
+          "created_at": "2026-05-06 02:04:52.832864",
+          "is_valid": true
+        }
+      }
+    },
+    "cycle_13811f01": {
+      "cycle_id": "cycle_13811f01",
+      "status": "cancelled",
+      "trigger_type": "manual",
+      "config": {
+        "population_size": 50,
+        "max_generations": 10,
+        "fitness_threshold": 0.95
+      },
+      "population": [],
+      "current_generation": 1,
+      "fitness_history": [
+        {
+          "generation": 1,
+          "best_fitness": 0.7273448394240546,
+          "avg_fitness": 0.5842816277134262
+        }
+      ],
+      "started_at": "2026-05-06T20:58:59.397494",
+      "variants_data": {
+        "b1f56131-2a38-4894-8134-7a8bd6097262": {
+          "id": "b1f56131-2a38-4894-8134-7a8bd6097262",
+          "generation": 0,
+          "fitness_score": 0.7273448394240546,
+          "parent_ids": [
+            "251033b0-c32a-4cf5-8be1-07100d9ab2f7"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 20:58:59.399497",
+          "is_valid": true
+        },
+        "139ab723-474c-446a-8f32-2b4b74762118": {
+          "id": "139ab723-474c-446a-8f32-2b4b74762118",
+          "generation": 0,
+          "fitness_score": 0.7205070572025196,
+          "parent_ids": [
+            "251033b0-c32a-4cf5-8be1-07100d9ab2f7"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 20:58:59.399721",
+          "is_valid": true
+        },
+        "fe8079a8-af62-4852-ae40-05b0bcefb1b5": {
+          "id": "fe8079a8-af62-4852-ae40-05b0bcefb1b5",
+          "generation": 0,
+          "fitness_score": 0.6734946385961371,
+          "parent_ids": [
+            "251033b0-c32a-4cf5-8be1-07100d9ab2f7"
+          ],
+          "configuration": {
+            "temperature": 0.71
+          },
+          "created_at": "2026-05-06 20:58:59.399685",
+          "is_valid": true
+        },
+        "69241117-f4e9-4687-a3b5-03dd98d7647c": {
+          "id": "69241117-f4e9-4687-a3b5-03dd98d7647c",
+          "generation": 0,
+          "fitness_score": 0.671372379863809,
+          "parent_ids": [
+            "251033b0-c32a-4cf5-8be1-07100d9ab2f7"
+          ],
+          "configuration": {
+            "temperature": 0.55
+          },
+          "created_at": "2026-05-06 20:58:59.399468",
+          "is_valid": true
+        },
+        "61bff4a6-b95f-4f48-a325-a648eaec3474": {
+          "id": "61bff4a6-b95f-4f48-a325-a648eaec3474",
+          "generation": 0,
+          "fitness_score": 0.6626776345311196,
+          "parent_ids": [
+            "251033b0-c32a-4cf5-8be1-07100d9ab2f7"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 20:58:59.399554",
+          "is_valid": true
+        },
+        "0cfdbb81-f0be-4118-af9c-1ae2aeb2f7f9": {
+          "id": "0cfdbb81-f0be-4118-af9c-1ae2aeb2f7f9",
+          "generation": 0,
+          "fitness_score": 0.6581127920039848,
+          "parent_ids": [
+            "251033b0-c32a-4cf5-8be1-07100d9ab2f7"
+          ],
+          "configuration": {
+            "temperature": 0.86
+          },
+          "created_at": "2026-05-06 20:58:59.399640",
+          "is_valid": true
+        },
+        "2e410da1-57a0-4dd5-a9e3-803fac1a8db9": {
+          "id": "2e410da1-57a0-4dd5-a9e3-803fac1a8db9",
+          "generation": 0,
+          "fitness_score": 0.6571960480426416,
+          "parent_ids": [
+            "251033b0-c32a-4cf5-8be1-07100d9ab2f7"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 20:58:59.399599",
+          "is_valid": true
+        },
+        "a776656b-7ee0-4882-9f60-28a089be1c6f": {
+          "id": "a776656b-7ee0-4882-9f60-28a089be1c6f",
+          "generation": 0,
+          "fitness_score": 0.653906763728534,
+          "parent_ids": [
+            "251033b0-c32a-4cf5-8be1-07100d9ab2f7"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 20:58:59.399664",
+          "is_valid": true
+        },
+        "28d125e1-9361-47e7-b332-31d5a11a3a18": {
+          "id": "28d125e1-9361-47e7-b332-31d5a11a3a18",
+          "generation": 0,
+          "fitness_score": 0.6468382478498664,
+          "parent_ids": [
+            "251033b0-c32a-4cf5-8be1-07100d9ab2f7"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 20:58:59.399711",
+          "is_valid": true
+        },
+        "0b96ecfb-7fe5-4054-ac18-128e262f8079": {
+          "id": "0b96ecfb-7fe5-4054-ac18-128e262f8079",
+          "generation": 0,
+          "fitness_score": 0.6346996956117782,
+          "parent_ids": [
+            "251033b0-c32a-4cf5-8be1-07100d9ab2f7"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 20:58:59.399754",
+          "is_valid": true
+        },
+        "fffb49fa-8bb7-42cf-ace2-08dd16fda323": {
+          "id": "fffb49fa-8bb7-42cf-ace2-08dd16fda323",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "139ab723-474c-446a-8f32-2b4b74762118"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 20:58:59.400181",
+          "is_valid": true
+        },
+        "c05ecaa6-24ea-4bf5-83e3-5ce46578dcdb": {
+          "id": "c05ecaa6-24ea-4bf5-83e3-5ce46578dcdb",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "fe8079a8-af62-4852-ae40-05b0bcefb1b5"
+          ],
+          "configuration": {
+            "temperature": 0.86
+          },
+          "created_at": "2026-05-06 20:58:59.400192",
+          "is_valid": true
+        },
+        "d6e8f287-39ff-448e-a2e3-e54677788c9c": {
+          "id": "d6e8f287-39ff-448e-a2e3-e54677788c9c",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "69241117-f4e9-4687-a3b5-03dd98d7647c"
+          ],
+          "configuration": {
+            "temperature": 0.37
+          },
+          "created_at": "2026-05-06 20:58:59.400200",
+          "is_valid": true
+        },
+        "a3351a50-a830-40d4-8753-8d001e1eb33d": {
+          "id": "a3351a50-a830-40d4-8753-8d001e1eb33d",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "61bff4a6-b95f-4f48-a325-a648eaec3474"
+          ],
+          "configuration": {
+            "temperature": 0.74
+          },
+          "created_at": "2026-05-06 20:58:59.400209",
+          "is_valid": true
+        },
+        "1d362649-3d0a-402f-8a58-5d4ad3b9b593": {
+          "id": "1d362649-3d0a-402f-8a58-5d4ad3b9b593",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "0cfdbb81-f0be-4118-af9c-1ae2aeb2f7f9"
+          ],
+          "configuration": {
+            "temperature": 0.86
+          },
+          "created_at": "2026-05-06 20:58:59.400215",
+          "is_valid": true
+        },
+        "15841c50-5115-4367-9427-28a674e005e1": {
+          "id": "15841c50-5115-4367-9427-28a674e005e1",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "2e410da1-57a0-4dd5-a9e3-803fac1a8db9"
+          ],
+          "configuration": {
+            "temperature": 0.8
+          },
+          "created_at": "2026-05-06 20:58:59.400222",
+          "is_valid": true
+        },
+        "abb46512-71a2-4ac2-ba76-961439d26364": {
+          "id": "abb46512-71a2-4ac2-ba76-961439d26364",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "a776656b-7ee0-4882-9f60-28a089be1c6f"
+          ],
+          "configuration": {
+            "temperature": 0.75
+          },
+          "created_at": "2026-05-06 20:58:59.400230",
+          "is_valid": true
+        },
+        "5c4c932d-309e-4196-a115-5c64243a37c0": {
+          "id": "5c4c932d-309e-4196-a115-5c64243a37c0",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "28d125e1-9361-47e7-b332-31d5a11a3a18"
+          ],
+          "configuration": {
+            "temperature": 0.74
+          },
+          "created_at": "2026-05-06 20:58:59.400238",
+          "is_valid": true
+        },
+        "99bbdd53-19a1-4682-b1eb-685c774dc1bc": {
+          "id": "99bbdd53-19a1-4682-b1eb-685c774dc1bc",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "0b96ecfb-7fe5-4054-ac18-128e262f8079"
+          ],
+          "configuration": {
+            "temperature": 0.58
+          },
+          "created_at": "2026-05-06 20:58:59.400244",
+          "is_valid": true
+        }
+      }
+    },
+    "cycle_a72e45bb": {
+      "cycle_id": "cycle_a72e45bb",
+      "status": "cancelled",
+      "trigger_type": "manual",
+      "config": {
+        "population_size": 50,
+        "max_generations": 10,
+        "fitness_threshold": 0.95
+      },
+      "population": [],
+      "current_generation": 1,
+      "fitness_history": [
+        {
+          "generation": 1,
+          "best_fitness": 0.7373982870134717,
+          "avg_fitness": 0.588614757059702
+        }
+      ],
+      "started_at": "2026-05-06T21:16:58.196982",
+      "variants_data": {
+        "e3191ba4-92ae-4f9a-8a8b-5bd16a0671a7": {
+          "id": "e3191ba4-92ae-4f9a-8a8b-5bd16a0671a7",
+          "generation": 0,
+          "fitness_score": 0.7373982870134717,
+          "parent_ids": [
+            "f1925f40-b1f7-4797-b5ea-e3719503783e"
+          ],
+          "configuration": {
+            "temperature": 0.76
+          },
+          "created_at": "2026-05-06 21:16:58.200317",
+          "is_valid": true
+        },
+        "b88ba720-97a3-4435-b2b2-a5cbb0f11d10": {
+          "id": "b88ba720-97a3-4435-b2b2-a5cbb0f11d10",
+          "generation": 0,
+          "fitness_score": 0.7337542518636628,
+          "parent_ids": [
+            "f1925f40-b1f7-4797-b5ea-e3719503783e"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:16:58.200249",
+          "is_valid": true
+        },
+        "7dd3ac22-d4e1-4bc4-a465-5d987b310f9d": {
+          "id": "7dd3ac22-d4e1-4bc4-a465-5d987b310f9d",
+          "generation": 0,
+          "fitness_score": 0.7285975789806212,
+          "parent_ids": [
+            "f1925f40-b1f7-4797-b5ea-e3719503783e"
+          ],
+          "configuration": {
+            "temperature": 0.61
+          },
+          "created_at": "2026-05-06 21:16:58.200324",
+          "is_valid": true
+        },
+        "18c156d0-adef-4b47-9d3a-88d9769311aa": {
+          "id": "18c156d0-adef-4b47-9d3a-88d9769311aa",
+          "generation": 0,
+          "fitness_score": 0.7227989466729308,
+          "parent_ids": [
+            "f1925f40-b1f7-4797-b5ea-e3719503783e"
+          ],
+          "configuration": {
+            "temperature": 0.79
+          },
+          "created_at": "2026-05-06 21:16:58.200310",
+          "is_valid": true
+        },
+        "2f63bb62-e5db-413c-931e-a797226c51e7": {
+          "id": "2f63bb62-e5db-413c-931e-a797226c51e7",
+          "generation": 0,
+          "fitness_score": 0.6893993880761454,
+          "parent_ids": [
+            "f1925f40-b1f7-4797-b5ea-e3719503783e"
+          ],
+          "configuration": {
+            "temperature": 0.46
+          },
+          "created_at": "2026-05-06 21:16:58.200303",
+          "is_valid": true
+        },
+        "a37b54dd-fb4c-419f-9357-8a20f9150b3c": {
+          "id": "a37b54dd-fb4c-419f-9357-8a20f9150b3c",
+          "generation": 0,
+          "fitness_score": 0.6769361316229998,
+          "parent_ids": [
+            "f1925f40-b1f7-4797-b5ea-e3719503783e"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:16:58.200227",
+          "is_valid": true
+        },
+        "db8f3165-8a67-490e-995d-9189b728f09b": {
+          "id": "db8f3165-8a67-490e-995d-9189b728f09b",
+          "generation": 0,
+          "fitness_score": 0.6769279390987856,
+          "parent_ids": [
+            "f1925f40-b1f7-4797-b5ea-e3719503783e"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:16:58.200345",
+          "is_valid": true
+        },
+        "f1925f40-b1f7-4797-b5ea-e3719503783e": {
+          "id": "f1925f40-b1f7-4797-b5ea-e3719503783e",
+          "generation": 0,
+          "fitness_score": 0.6638096386926897,
+          "parent_ids": [],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:16:58.200032",
+          "is_valid": true
+        },
+        "a0d981db-7697-49d1-8ac9-85b7233aaa60": {
+          "id": "a0d981db-7697-49d1-8ac9-85b7233aaa60",
+          "generation": 0,
+          "fitness_score": 0.6634590145131934,
+          "parent_ids": [
+            "f1925f40-b1f7-4797-b5ea-e3719503783e"
+          ],
+          "configuration": {
+            "temperature": 0.62
+          },
+          "created_at": "2026-05-06 21:16:58.200334",
+          "is_valid": true
+        },
+        "ca439e91-55a6-47cb-ab2e-748cb8d0c8a1": {
+          "id": "ca439e91-55a6-47cb-ab2e-748cb8d0c8a1",
+          "generation": 0,
+          "fitness_score": 0.650381035779903,
+          "parent_ids": [
+            "f1925f40-b1f7-4797-b5ea-e3719503783e"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:16:58.200350",
+          "is_valid": true
+        },
+        "94096f64-bc1a-4cc2-b130-9f7952f0d24f": {
+          "id": "94096f64-bc1a-4cc2-b130-9f7952f0d24f",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "b88ba720-97a3-4435-b2b2-a5cbb0f11d10"
+          ],
+          "configuration": {
+            "temperature": 0.61
+          },
+          "created_at": "2026-05-06 21:16:58.200799",
+          "is_valid": true
+        },
+        "357e5347-0c97-41f2-96cc-2702af3be4d8": {
+          "id": "357e5347-0c97-41f2-96cc-2702af3be4d8",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "7dd3ac22-d4e1-4bc4-a465-5d987b310f9d"
+          ],
+          "configuration": {
+            "temperature": 0.63
+          },
+          "created_at": "2026-05-06 21:16:58.200808",
+          "is_valid": true
+        },
+        "6aee280d-9b37-4a2d-b723-e53a7c7c9152": {
+          "id": "6aee280d-9b37-4a2d-b723-e53a7c7c9152",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "18c156d0-adef-4b47-9d3a-88d9769311aa"
+          ],
+          "configuration": {
+            "temperature": 0.77
+          },
+          "created_at": "2026-05-06 21:16:58.200817",
+          "is_valid": true
+        },
+        "ee7628ff-0fe7-4ede-a3ff-c70aa1bbd669": {
+          "id": "ee7628ff-0fe7-4ede-a3ff-c70aa1bbd669",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "2f63bb62-e5db-413c-931e-a797226c51e7"
+          ],
+          "configuration": {
+            "temperature": 0.44
+          },
+          "created_at": "2026-05-06 21:16:58.200824",
+          "is_valid": true
+        },
+        "7f5ecf97-add9-43b3-a18f-3f2f3d193564": {
+          "id": "7f5ecf97-add9-43b3-a18f-3f2f3d193564",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "a37b54dd-fb4c-419f-9357-8a20f9150b3c"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:16:58.200833",
+          "is_valid": true
+        },
+        "2d50c07a-3e62-4aaf-b750-b19a31bc2f87": {
+          "id": "2d50c07a-3e62-4aaf-b750-b19a31bc2f87",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "db8f3165-8a67-490e-995d-9189b728f09b"
+          ],
+          "configuration": {
+            "temperature": 0.68
+          },
+          "created_at": "2026-05-06 21:16:58.200840",
+          "is_valid": true
+        },
+        "4c6a50f3-da85-43c7-a023-a9832abb8097": {
+          "id": "4c6a50f3-da85-43c7-a023-a9832abb8097",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "f1925f40-b1f7-4797-b5ea-e3719503783e"
+          ],
+          "configuration": {
+            "temperature": 0.67
+          },
+          "created_at": "2026-05-06 21:16:58.200848",
+          "is_valid": true
+        },
+        "df05e31c-0727-404e-b7ce-bf514a94d60e": {
+          "id": "df05e31c-0727-404e-b7ce-bf514a94d60e",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "a0d981db-7697-49d1-8ac9-85b7233aaa60"
+          ],
+          "configuration": {
+            "temperature": 0.41
+          },
+          "created_at": "2026-05-06 21:16:58.200855",
+          "is_valid": true
+        },
+        "6fe3ff3b-e5f5-4ef0-8bd2-0568e28936ee": {
+          "id": "6fe3ff3b-e5f5-4ef0-8bd2-0568e28936ee",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "ca439e91-55a6-47cb-ab2e-748cb8d0c8a1"
+          ],
+          "configuration": {
+            "temperature": 0.66
+          },
+          "created_at": "2026-05-06 21:16:58.200861",
+          "is_valid": true
+        }
+      }
+    },
+    "cycle_78ef9bba": {
+      "cycle_id": "cycle_78ef9bba",
+      "status": "cancelled",
+      "trigger_type": "manual",
+      "config": {
+        "population_size": 50,
+        "max_generations": 10,
+        "fitness_threshold": 0.95
+      },
+      "population": [],
+      "current_generation": 1,
+      "fitness_history": [
+        {
+          "generation": 1,
+          "best_fitness": 0.7112114066283122,
+          "avg_fitness": 0.5820821287443327
+        }
+      ],
+      "started_at": "2026-05-06T21:48:51.796128",
+      "variants_data": {
+        "63e78d26-72c2-44b2-828d-1232cbab104c": {
+          "id": "63e78d26-72c2-44b2-828d-1232cbab104c",
+          "generation": 0,
+          "fitness_score": 0.7112114066283122,
+          "parent_ids": [
+            "f6854f65-03a3-4ba6-95b8-35446f9ed8dc"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:48:51.798158",
+          "is_valid": true
+        },
+        "c07bfe93-b689-410c-81ef-aca12ccf96c6": {
+          "id": "c07bfe93-b689-410c-81ef-aca12ccf96c6",
+          "generation": 0,
+          "fitness_score": 0.694296462124474,
+          "parent_ids": [
+            "f6854f65-03a3-4ba6-95b8-35446f9ed8dc"
+          ],
+          "configuration": {
+            "temperature": 0.79
+          },
+          "created_at": "2026-05-06 21:48:51.798093",
+          "is_valid": true
+        },
+        "0c5c6dca-ee5f-443e-84df-fe9862e9b2d8": {
+          "id": "0c5c6dca-ee5f-443e-84df-fe9862e9b2d8",
+          "generation": 0,
+          "fitness_score": 0.660785512850224,
+          "parent_ids": [
+            "f6854f65-03a3-4ba6-95b8-35446f9ed8dc"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:48:51.798103",
+          "is_valid": true
+        },
+        "b00776f0-6c83-4820-8e68-759cbd8ed5d6": {
+          "id": "b00776f0-6c83-4820-8e68-759cbd8ed5d6",
+          "generation": 0,
+          "fitness_score": 0.654325788306039,
+          "parent_ids": [
+            "f6854f65-03a3-4ba6-95b8-35446f9ed8dc"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:48:51.798090",
+          "is_valid": true
+        },
+        "8f20f838-9743-466c-a84f-fa5d325cbc75": {
+          "id": "8f20f838-9743-466c-a84f-fa5d325cbc75",
+          "generation": 0,
+          "fitness_score": 0.6537998995536277,
+          "parent_ids": [
+            "f6854f65-03a3-4ba6-95b8-35446f9ed8dc"
+          ],
+          "configuration": {
+            "temperature": 0.68
+          },
+          "created_at": "2026-05-06 21:48:51.798145",
+          "is_valid": true
+        },
+        "837ae48c-99f0-45ae-9a74-6879416bb001": {
+          "id": "837ae48c-99f0-45ae-9a74-6879416bb001",
+          "generation": 0,
+          "fitness_score": 0.6465777790867738,
+          "parent_ids": [
+            "f6854f65-03a3-4ba6-95b8-35446f9ed8dc"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:48:51.798097",
+          "is_valid": true
+        },
+        "3b846e7c-9367-425e-b0e2-34fa927d0b46": {
+          "id": "3b846e7c-9367-425e-b0e2-34fa927d0b46",
+          "generation": 0,
+          "fitness_score": 0.6448839065137468,
+          "parent_ids": [
+            "f6854f65-03a3-4ba6-95b8-35446f9ed8dc"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:48:51.798112",
+          "is_valid": true
+        },
+        "02789dbd-a7d2-47e1-a0f2-f85fe401d549": {
+          "id": "02789dbd-a7d2-47e1-a0f2-f85fe401d549",
+          "generation": 0,
+          "fitness_score": 0.6420804870719203,
+          "parent_ids": [
+            "f6854f65-03a3-4ba6-95b8-35446f9ed8dc"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:48:51.798129",
+          "is_valid": true
+        },
+        "f8a81b7f-b574-4384-a7c2-607e1dce8a91": {
+          "id": "f8a81b7f-b574-4384-a7c2-607e1dce8a91",
+          "generation": 0,
+          "fitness_score": 0.6418303651519122,
+          "parent_ids": [
+            "f6854f65-03a3-4ba6-95b8-35446f9ed8dc"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:48:51.798086",
+          "is_valid": true
+        },
+        "cf3c5a7e-1883-40f4-896f-a5f4ff57179d": {
+          "id": "cf3c5a7e-1883-40f4-896f-a5f4ff57179d",
+          "generation": 0,
+          "fitness_score": 0.6404217057385969,
+          "parent_ids": [
+            "f6854f65-03a3-4ba6-95b8-35446f9ed8dc"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06 21:48:51.798060",
+          "is_valid": true
+        },
+        "40194632-64bb-4c3b-9fe8-5a9b88464c3d": {
+          "id": "40194632-64bb-4c3b-9fe8-5a9b88464c3d",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "c07bfe93-b689-410c-81ef-aca12ccf96c6"
+          ],
+          "configuration": {
+            "temperature": 0.79
+          },
+          "created_at": "2026-05-06 21:48:51.798375",
+          "is_valid": true
+        },
+        "8b5e9c65-fead-4d9b-95ed-edbe3cae593f": {
+          "id": "8b5e9c65-fead-4d9b-95ed-edbe3cae593f",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "0c5c6dca-ee5f-443e-84df-fe9862e9b2d8"
+          ],
+          "configuration": {
+            "temperature": 0.73
+          },
+          "created_at": "2026-05-06 21:48:51.798381",
+          "is_valid": true
+        },
+        "532725ed-fc6c-4720-861e-a7fda3e977a6": {
+          "id": "532725ed-fc6c-4720-861e-a7fda3e977a6",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "b00776f0-6c83-4820-8e68-759cbd8ed5d6"
+          ],
+          "configuration": {
+            "temperature": 0.6
+          },
+          "created_at": "2026-05-06 21:48:51.798385",
+          "is_valid": true
+        },
+        "420712e8-0d8f-4be6-931c-756a7878391f": {
+          "id": "420712e8-0d8f-4be6-931c-756a7878391f",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "8f20f838-9743-466c-a84f-fa5d325cbc75"
+          ],
+          "configuration": {
+            "temperature": 0.77
+          },
+          "created_at": "2026-05-06 21:48:51.798388",
+          "is_valid": true
+        },
+        "543cbde8-a8f7-447f-b7b7-60cc17e37d6a": {
+          "id": "543cbde8-a8f7-447f-b7b7-60cc17e37d6a",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "837ae48c-99f0-45ae-9a74-6879416bb001"
+          ],
+          "configuration": {
+            "temperature": 0.61
+          },
+          "created_at": "2026-05-06 21:48:51.798391",
+          "is_valid": true
+        },
+        "6f2338c0-f469-47db-b57f-5755229c7b2c": {
+          "id": "6f2338c0-f469-47db-b57f-5755229c7b2c",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "3b846e7c-9367-425e-b0e2-34fa927d0b46"
+          ],
+          "configuration": {
+            "temperature": 0.63
+          },
+          "created_at": "2026-05-06 21:48:51.798394",
+          "is_valid": true
+        },
+        "09808a20-2761-46cd-8c8c-808e669267d4": {
+          "id": "09808a20-2761-46cd-8c8c-808e669267d4",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "02789dbd-a7d2-47e1-a0f2-f85fe401d549"
+          ],
+          "configuration": {
+            "temperature": 0.57
+          },
+          "created_at": "2026-05-06 21:48:51.798397",
+          "is_valid": true
+        },
+        "e8b38699-6c0a-49e0-809f-68ba3f9c870b": {
+          "id": "e8b38699-6c0a-49e0-809f-68ba3f9c870b",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "f8a81b7f-b574-4384-a7c2-607e1dce8a91"
+          ],
+          "configuration": {
+            "temperature": 0.75
+          },
+          "created_at": "2026-05-06 21:48:51.798400",
+          "is_valid": true
+        },
+        "55d998ae-176b-4e72-9f3c-4ca7c9bef0dc": {
+          "id": "55d998ae-176b-4e72-9f3c-4ca7c9bef0dc",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "cf3c5a7e-1883-40f4-896f-a5f4ff57179d"
+          ],
+          "configuration": {
+            "temperature": 0.56
+          },
+          "created_at": "2026-05-06 21:48:51.798402",
+          "is_valid": true
+        }
+      }
+    },
+    "cycle_754ccc0a": {
+      "cycle_id": "cycle_754ccc0a",
+      "status": "cancelled",
+      "trigger_type": "manual",
+      "config": {
+        "population_size": 50,
+        "max_generations": 10,
+        "fitness_threshold": 0.95
+      },
+      "population": [],
+      "current_generation": 1,
+      "fitness_history": [
+        {
+          "generation": 1,
+          "best_fitness": 0.7508110686683629,
+          "avg_fitness": 0.5916513814659241
+        }
+      ],
+      "started_at": "2026-05-06T22:06:44.582640",
+      "engine": null,
+      "variants_data": {
+        "f34575bb-e489-483d-9948-8285f813e6e0": {
+          "id": "f34575bb-e489-483d-9948-8285f813e6e0",
+          "generation": 0,
+          "fitness_score": 0.7508110686683629,
+          "parent_ids": [
+            "a4f24fe7-1d04-49e4-99c4-e7a337a4b7fd"
+          ],
+          "configuration": {
+            "temperature": 0.65
+          },
+          "created_at": "2026-05-06T22:06:44.585146",
+          "is_valid": true
+        },
+        "a4f24fe7-1d04-49e4-99c4-e7a337a4b7fd": {
+          "id": "a4f24fe7-1d04-49e4-99c4-e7a337a4b7fd",
+          "generation": 0,
+          "fitness_score": 0.7201386242687956,
+          "parent_ids": [],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06T22:06:44.585019",
+          "is_valid": true
+        },
+        "aafd2029-e9f3-4530-b3d5-6eeba439bcae": {
+          "id": "aafd2029-e9f3-4530-b3d5-6eeba439bcae",
+          "generation": 0,
+          "fitness_score": 0.7050288153496782,
+          "parent_ids": [
+            "a4f24fe7-1d04-49e4-99c4-e7a337a4b7fd"
+          ],
+          "configuration": {
+            "temperature": 0.73
+          },
+          "created_at": "2026-05-06T22:06:44.585136",
+          "is_valid": true
+        },
+        "11987838-fd6c-4173-a629-e0f099c1a9dd": {
+          "id": "11987838-fd6c-4173-a629-e0f099c1a9dd",
+          "generation": 0,
+          "fitness_score": 0.703328771339773,
+          "parent_ids": [
+            "a4f24fe7-1d04-49e4-99c4-e7a337a4b7fd"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06T22:06:44.585161",
+          "is_valid": true
+        },
+        "64f8f387-340d-462e-a287-78a8ac810b85": {
+          "id": "64f8f387-340d-462e-a287-78a8ac810b85",
+          "generation": 0,
+          "fitness_score": 0.6784197224645194,
+          "parent_ids": [
+            "a4f24fe7-1d04-49e4-99c4-e7a337a4b7fd"
+          ],
+          "configuration": {
+            "temperature": 0.98
+          },
+          "created_at": "2026-05-06T22:06:44.585107",
+          "is_valid": true
+        },
+        "8d59ca68-3404-4157-936a-c1dea2265b64": {
+          "id": "8d59ca68-3404-4157-936a-c1dea2265b64",
+          "generation": 0,
+          "fitness_score": 0.6530256080342273,
+          "parent_ids": [
+            "a4f24fe7-1d04-49e4-99c4-e7a337a4b7fd"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06T22:06:44.585179",
+          "is_valid": true
+        },
+        "587c1cf3-7dcf-46d2-bb45-454357670188": {
+          "id": "587c1cf3-7dcf-46d2-bb45-454357670188",
+          "generation": 0,
+          "fitness_score": 0.6479059532207566,
+          "parent_ids": [
+            "a4f24fe7-1d04-49e4-99c4-e7a337a4b7fd"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06T22:06:44.585040",
+          "is_valid": true
+        },
+        "0d6aa742-e34b-408b-80a7-721571555ff7": {
+          "id": "0d6aa742-e34b-408b-80a7-721571555ff7",
+          "generation": 0,
+          "fitness_score": 0.6474618991659435,
+          "parent_ids": [
+            "a4f24fe7-1d04-49e4-99c4-e7a337a4b7fd"
+          ],
+          "configuration": {
+            "temperature": 0.55
+          },
+          "created_at": "2026-05-06T22:06:44.585074",
+          "is_valid": true
+        },
+        "62acf937-32ba-4ab4-bcec-b20b47c0075e": {
+          "id": "62acf937-32ba-4ab4-bcec-b20b47c0075e",
+          "generation": 0,
+          "fitness_score": 0.6455851594674519,
+          "parent_ids": [
+            "a4f24fe7-1d04-49e4-99c4-e7a337a4b7fd"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06T22:06:44.585147",
+          "is_valid": true
+        },
+        "f8106f47-7db1-45f6-bee5-f29a352d6b15": {
+          "id": "f8106f47-7db1-45f6-bee5-f29a352d6b15",
+          "generation": 0,
+          "fitness_score": 0.6454648579965252,
+          "parent_ids": [
+            "a4f24fe7-1d04-49e4-99c4-e7a337a4b7fd"
+          ],
+          "configuration": {
+            "temperature": 0.7
+          },
+          "created_at": "2026-05-06T22:06:44.585102",
+          "is_valid": true
+        },
+        "ef0e739e-274f-433b-866a-1b37c6fdee3e": {
+          "id": "ef0e739e-274f-433b-866a-1b37c6fdee3e",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "a4f24fe7-1d04-49e4-99c4-e7a337a4b7fd"
+          ],
+          "configuration": {
+            "temperature": 0.71
+          },
+          "created_at": "2026-05-06T22:06:44.585399",
+          "is_valid": true
+        },
+        "0349514c-fac3-4eb8-b5d5-d23e26a882f1": {
+          "id": "0349514c-fac3-4eb8-b5d5-d23e26a882f1",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "aafd2029-e9f3-4530-b3d5-6eeba439bcae"
+          ],
+          "configuration": {
+            "temperature": 0.63
+          },
+          "created_at": "2026-05-06T22:06:44.585404",
+          "is_valid": true
+        },
+        "41ce7c23-bc4d-4127-b9b8-e8110aadb64f": {
+          "id": "41ce7c23-bc4d-4127-b9b8-e8110aadb64f",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "11987838-fd6c-4173-a629-e0f099c1a9dd"
+          ],
+          "configuration": {
+            "temperature": 0.57
+          },
+          "created_at": "2026-05-06T22:06:44.585408",
+          "is_valid": true
+        },
+        "f3774220-8abf-4aa3-b216-ecad4e1b54ea": {
+          "id": "f3774220-8abf-4aa3-b216-ecad4e1b54ea",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "64f8f387-340d-462e-a287-78a8ac810b85"
+          ],
+          "configuration": {
+            "temperature": 0.92
+          },
+          "created_at": "2026-05-06T22:06:44.585411",
+          "is_valid": true
+        },
+        "4a0bd72b-8dc7-41f8-8029-a03b58d37011": {
+          "id": "4a0bd72b-8dc7-41f8-8029-a03b58d37011",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "8d59ca68-3404-4157-936a-c1dea2265b64"
+          ],
+          "configuration": {
+            "temperature": 0.72
+          },
+          "created_at": "2026-05-06T22:06:44.585414",
+          "is_valid": true
+        },
+        "a8aa46c0-ef93-42f9-9f4e-fc0bc37387b8": {
+          "id": "a8aa46c0-ef93-42f9-9f4e-fc0bc37387b8",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "587c1cf3-7dcf-46d2-bb45-454357670188"
+          ],
+          "configuration": {
+            "temperature": 0.64
+          },
+          "created_at": "2026-05-06T22:06:44.585416",
+          "is_valid": true
+        },
+        "77205df2-6f28-4f21-b4f5-6cac4b234795": {
+          "id": "77205df2-6f28-4f21-b4f5-6cac4b234795",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "0d6aa742-e34b-408b-80a7-721571555ff7"
+          ],
+          "configuration": {
+            "temperature": 0.35
+          },
+          "created_at": "2026-05-06T22:06:44.585420",
+          "is_valid": true
+        },
+        "a26f76ba-7f78-43cb-904f-cd90e39724bb": {
+          "id": "a26f76ba-7f78-43cb-904f-cd90e39724bb",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "62acf937-32ba-4ab4-bcec-b20b47c0075e"
+          ],
+          "configuration": {
+            "temperature": 0.78
+          },
+          "created_at": "2026-05-06T22:06:44.585423",
+          "is_valid": true
+        },
+        "9ffdec3a-50c9-4eaf-a2eb-3d9b3264c1bb": {
+          "id": "9ffdec3a-50c9-4eaf-a2eb-3d9b3264c1bb",
+          "generation": 1,
+          "fitness_score": null,
+          "parent_ids": [
+            "f8106f47-7db1-45f6-bee5-f29a352d6b15"
+          ],
+          "configuration": {
+            "temperature": 0.79
+          },
+          "created_at": "2026-05-06T22:06:44.585426",
+          "is_valid": true
+        }
+      }
+    }
+  }
+}
