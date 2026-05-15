@@ -14,9 +14,10 @@
 | **运行地址** | `127.0.0.1:58000` |
 | **协议** | streamable-http |
 | **Python 版本** | >=3.10 |
-| **总工具数** | 74 个（基础 34 + 番茄 6 + 网易云 13 + evolve-mcp 21） |
+| **总工具数** | 76 个（基础 34 + 番茄 6 + 网易云 13 + 进化 21 + PDF 2） |
 
 ---
+
 
 ## 🗂 目录结构
 
@@ -29,27 +30,71 @@ E:\Codes\AI Related\MCP Server\
 ├── .gitignore                      # Git 忽略规则
 ├── evolve-mcp 重写说明.md          # evolve-mcp 功能重写文档
 ├── README.md                       # 项目说明文档（本文件）
-├── Lib/                            # 工具模块目录（74 个工具）
+├── Lib/                            # 工具模块目录（重构后）
 │   ├── __init__.py                 # 初始化
-│   ├── base.py                     # 基础架构：工具装饰器、缓存机制、注册表
-│   ├── evolve_core.py              # 进化核心：变异生成器、适应度评估、安全验证、指标收集
-│   ├── evolution_state.json        # 进化状态持久化文件（JSON 增量索引）
-│   ├── fanqie_api.py               # 番茄小说：核心 API 交互
-│   ├── fanqie_book.py              # 番茄小说：书籍信息获取
-│   ├── fanqie_config.py            # 番茄小说：配置管理
-│   ├── fanqie_content.py           # 番茄小说：内容获取与解析
-│   ├── fanqie_misc.py              # 番茄小说：杂项功能
-│   ├── fanqie_search.py            # 番茄小说：搜索功能
-│   ├── netease_config.py           # 网易云音乐：配置与控制器状态
-│   ├── netease_control.py          # 网易云音乐：基础控制（播放/音量/快捷键）
-│   ├── netease_daily.py            # 网易云音乐：每日推荐与私人漫游（Selenium）
-│   ├── netease_playlist.py         # 网易云音乐：歌单管理
-│   ├── netease_search.py           # 网易云音乐：搜索与播放
-│   └── [55 个工具文件]             # 每个工具独立文件，职责单一
+│   ├── base/                       # 基础架构模块
+│   │   ├── __init__.py
+│   │   └── base.py                 # 基础工具装饰器、缓存机制、注册表
+│   ├── evolution/                  # 进化引擎模块
+│   │   ├── __init__.py
+│   │   ├── evolve_core.py          # 进化核心：变异生成器、适应度评估、安全验证、指标收集
+│   │   └── evolution_state.json    # 进化状态持久化文件（JSON 增量索引）
+│   ├── fanqie/                     # 番茄小说工具
+│   │   ├── __init__.py
+│   │   ├── fanqie_api.py           # 番茄小说：核心 API 交互
+│   │   ├── fanqie_book.py          # 番茄小说：书籍信息获取
+│   │   ├── fanqie_config.py        # 番茄小说：配置管理
+│   │   ├── fanqie_content.py       # 番茄小说：内容获取与解析
+│   │   ├── fanqie_misc.py          # 番茄小说：杂项功能
+│   │   └── fanqie_search.py        # 番茄小说：搜索功能
+│   ├── netease/                    # 网易云音乐工具
+│   │   ├── __init__.py
+│   │   ├── netease_config.py       # 网易云音乐：配置与控制器状态
+│   │   ├── netease_control.py      # 网易云音乐：基础控制（播放/音量/快捷键）
+│   │   ├── netease_daily.py        # 网易云音乐：每日推荐与私人漫游（Selenium）
+│   │   ├── netease_playlist.py     # 网易云音乐：歌单管理
+│   │   └── netease_search.py       # 网易云音乐：搜索与播放
+│   ├── pdf_reader/                 # PDF 阅读器工具（猫娘新增）
+│   │   ├── __init__.py
+│   │   ├── pdf_read_local.py       # PDF 阅读器：本地文件读取
+│   │   └── pdf_read_url.py         # PDF 阅读器：URL 内容获取
+│   └── tools/                      # 通用工具集
+│       ├── __init__.py
+│       ├── add.py                  # 基础数学
+│       ├── calculate.py            # 数学表达式计算
+│       ├── count_lines.py          # 统计代码行数
+│       ├── create_directory.py     # 创建目录
+│       ├── create_tool.py          # 动态创建 MCP 工具
+│       ├── delete_file.py          # 删除文件
+│       ├── download_file.py        # 下载文件
+│       ├── file_info.py            # 获取文件元数据
+│       ├── get_current_date.py     # 获取当前日期
+│       ├── get_dangerous_patterns.py # 获取危险命令模式
+│       ├── get_everything_info.py  # 获取 Everything 状态信息
+│       ├── get_system_info.py      # 获取系统信息
+│       ├── get_time.py             # 获取当前时间
+│       ├── get_weather.py          # 获取城市天气
+│       ├── git_clone.py            # 克隆 Git 仓库
+│       ├── git_pull.py             # 拉取远程更新
+│       ├── grep.py                 # 文本模式搜索
+│       ├── hello_world.py          # 问候语示例
+│       ├── list_directory.py       # 列出目录内容
+│       ├── manage_approved.py      # 管理已批准命令
+│       ├── manage_blacklist.py     # 管理命令黑名单
+│       ├── python_eval.py          # 执行 Python 代码片段
+│       ├── read_file.py            # 读取文件内容
+│       ├── run_command.py          # 执行 Shell 命令
+│       ├── run_python_script.py    # 执行 Python 脚本
+│       ├── search.py               # Everything 搜索引擎
+│       ├── complex_search.py       # 复杂组合搜索
+│       ├── search_files.py         # 通配符搜索文件
+│       ├── web_fetch.py            # 抓取网页内容
+│       ├── web_search.py           # 网络搜索
+│       ├── write_file.py           # 写入文件内容
+│       └── reverse_text.py         # 字符串反转
 └── __pycache__/                    # Python 字节码缓存（自动）
 ```
 
----
 
 ## 🔧 核心模块
 
@@ -65,8 +110,8 @@ E:\Codes\AI Related\MCP Server\
 
 **核心逻辑：**
 1. 创建 FastMCP 实例（host: 127.0.0.1, port: 58000）
-2. 硬编码导入 55 个核心工具模块
-3. `_auto_scan_lib_tools()`：自动扫描 Lib 目录发现新工具（如新增的番茄小说、网易云音乐工具）
+2. 硬编码导入核心工具模块
+3. `_auto_scan_lib_tools()`：自动扫描 Lib 目录发现新工具（如新增的 PDF Reader、Fanqie、Netease 模块）
 4. `register_all_tools()`：遍历 ToolRegistry 注册所有工具
 5. `main()`：启动 MCP 服务
 
@@ -89,29 +134,17 @@ E:\Codes\AI Related\MCP Server\
 
 ---
 
-### Lib/evolve_core.py — 进化引擎核心
+### Lib/pdf_reader — PDF 阅读器模块
 
 | 属性 | 值 |
 |------|-----|
-| **类型** | 核心算法模块 |
-| **功能** | 进化生命周期管理、变异生成、适应度评估、安全验证、指标收集 |
-| **核心类** | `StateManager`, `VariantGenerator`, `FitnessEvaluator`, `SafetyValidator`, `MetricsCollector`, `EvolutionPipeline` |
-| **数据结构** | `Variant`, `TestResults`, `SafetyPolicy`, `ComplexityMetrics`, `MetricWindow`, `Anomaly` |
+| **类型** | 文件解析模块 |
+| **功能** | 本地/URL PDF 内容提取 |
+| **依赖** | PyPDF2 |
 
-**模块组成：**
-
-| 组件 | 职责 | 关键方法 |
-|------|------|----------|
-| `VariantGenerator` | Prompt 变异生成 | `generate_population()`, `mutate_prompt()`, `crossover()` |
-| `FitnessEvaluator` | 适应度评估 | `evaluate()`, `explain_fitness()`, `register_function()` |
-| `SafetyValidator` | 安全验证 | `check_safety()`, `validate_variant()`, `add_pattern()` |
-| `MetricsCollector` | 指标收集与分析 | `collect()`, `get_window_metrics()`, `detect_anomalies()` |
-| `StateManager` | 全局状态管理 | `start_cycle()`, `store_variants()`, `get_cycle_context()` |
-| `EvolutionPipeline` | 自动进化流水线 | `run_generation()`：被动触发后自动执行一代 |
-
-**版本控制：**
-- Schema v2：JSON 增量索引策略，仅持久化元数据（降低 I/O 开销 70%+）
-- 内存缓存：完整 Variant 对象缓存，上限 5000 条
+**核心工具：**
+- `pdf_read_local`: 从本地路径读取 PDF 文本。
+- `pdf_read_url`: 从 URL 下载并读取 PDF 文本。
 
 ---
 
@@ -178,6 +211,17 @@ E:\Codes\AI Related\MCP Server\
 |--------|----------|----------|
 | `hello_world` | `Lib/hello_world.py` | 问候语示例 |
 | `reverse_text` | `Lib/reverse_text.py` | 字符串反转 |
+
+---
+
+## 📄 PDF 阅读器工具集（2 个）
+
+### 📚 内容提取
+
+| 工具名 | 文件路径 | 功能描述 |
+|--------|----------|----------|
+| `pdf_read_local` | `Lib/pdf_reader/pdf_read_local.py` | 从本地文件系统读取 PDF 文本内容 |
+| `pdf_read_url` | `Lib/pdf_reader/pdf_read_url.py` | 从 URL 下载 PDF 并提取文本内容 |
 
 ---
 
@@ -303,7 +347,7 @@ E:\Codes\AI Related\MCP Server\
 | **version** | 0.1.0 |
 | **requires-python** | >=3.10 |
 | **核心依赖** | mcp, everytools, ddgs, httpx, selectolax, requests |
-| **扩展依赖** | pyautogui, selenium, psutil, pywin32 (网易云模块) |
+| **扩展依赖** | pyautogui, selenium, psutil, pywin32 (网易云模块), PyPDF2 (PDF 模块) |
 
 ### requirements.txt
 
@@ -317,6 +361,7 @@ E:\Codes\AI Related\MCP Server\
 | 网络请求 | requests |
 | 网易云基础 | pyautogui>=0.9.54, pywin32>=306 |
 | 网易云自动化 | selenium>=4.0.0, psutil>=5.9.0 |
+| PDF 解析 | PyPDF2>=3.0.0 |
 
 ### .gitignore
 
@@ -344,7 +389,7 @@ python Ent.py
 ============================================================
 Ent MCP Server Started
 Address: 127.0.0.1:58001
-Tools: 74 (Success: 74, Failed: 0)
+Tools: 76 (Success: 76, Failed: 0)
 ============================================================
 ```
 
@@ -357,7 +402,7 @@ Tools: 74 (Success: 74, Failed: 0)
 ```
 Ent.py (入口)
   ├── 硬编码导入所有工具模块
-  ├── _auto_scan_lib_tools() → 自动发现新工具（如 Fanqie/Netease 模块）
+  ├── _auto_scan_lib_tools() → 自动发现新工具（如 PDF Reader/Fanqie/Netease 模块）
   └── register_all_tools() → 遍历 ToolRegistry 注册
        └── mcp.add_tool(func, name, description)
 ```
@@ -387,10 +432,10 @@ start_evolution() 触发
 2. **缓存机制**：LRU 缓存 TTL 为 3600 秒，最大 500 条
 3. **内存限制**：Variant 缓存上限 5000 条，超过自动淘汰
 4. **安全警告**：`run_command` 和 `python_eval` 涉及系统执行，请谨慎使用
-5. **依赖安装**：确保安装 `requirements.txt` 中列出的所有依赖（特别是 `pyautogui` 和 `selenium` 用于网易云模块）
+5. **依赖安装**：确保安装 `requirements.txt` 中列出的所有依赖（特别是 `pyautogui`、`selenium` 和 `PyPDF2`）
 6. **端口变更**：服务器端口已调整为 `58000`，请相应更新客户端配置
 
 ---
 
-**最后更新**: 2026-05-07  
-**项目维护**: 风见魅铃的猫娘 (猫娘修改标注)
+**最后更新**: 2026-05-12  
+**项目维护**: 猫娘 (猫娘修改标注)
