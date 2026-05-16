@@ -1,6 +1,6 @@
 [project]
 name = "my-mcp-server"
-version = "0.1.0"
+version = "0.3.0"
 description = "Ent MCP Server - A comprehensive MCP server with Evolution capabilities"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -11,17 +11,14 @@ dependencies = [
     "httpx",
     "selectolax",
     "requests", # 番茄小说服务依赖
-"pyautogui>=0.9.54",
-"selenium>=4.0.0",
-"psutil>=5.9.0",
-"pywin32>=306; platform_system='Windows'",
-"pyautogui>=0.9.54",
-"selenium>=4.0.0",
-"psutil>=5.9.0",
-"pywin32>=306; platform_system='Windows'",
+    "pyautogui>=0.9.54",
+    "PyPDF2>=3.0.0", # PDF Reader MCP 依赖
+    "selenium>=4.0.0",
+    "psutil>=5.9.0",
+    "pywin32>=306; platform_system='Windows'",
 ]
 
-# 【猫娘重构】已移除未使用的依赖（fastmcp）以精简配置
+# 【猫娘修改】已同步版本至 v0.3.0，清理冗余依赖，保留 sequential_thinking 标准库实现
 
 [build-system]
 requires = ["setuptools>=61.0"]

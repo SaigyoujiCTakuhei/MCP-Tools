@@ -1,1 +1,10 @@
-初始可用文件。
+一、初始可用文件。
+二、按功能整理模块。
+三、为"E:\Codes\AI Related\MCP Server\v01\Ent.py"添加新功能。
+1. 去除所有排除项，所有工具均需要自动发现。
+2. 显示所有工具的导入来源（文件夹位置）与工具名称。
+3. 统计导入了多少工具。
+4. 将硬编码（如：from Lib.tools.add import add）导入的工具，与自动发现的工具分开显示。
+
+四、导入“pdf-reader-mcp-main”工具。
+五、导入“servers-main\src\sequentialthinking”工具。
