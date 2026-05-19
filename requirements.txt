@@ -1,23 +1,28 @@
-# MCP Server 依赖清单
-
+# MCP Server v05 Ultimate Form 依赖清单
 # 核心框架
-mcp
+mcp>=1.0.0
 
 # Everything 搜索支持
 everytools
 
-# Web 搜索与下载
+# Web 搜索与 HTTP 请求
 ddgs
-httpx
-selectolax
+httpx>=0.27.0
+
+# 浏览器自动化模块依赖 (Browser Automation P0/P1/P2)
+playwright>=1.44.0
 
 # 番茄小说 MCP 服务依赖 (FanQie Integration)
 requests
+selectolax
 
 # 网易云音乐依赖
 pyautogui>=0.9.54
 selenium>=4.0.0
 psutil>=5.9.0
-pywin32>=306
+pywin32>=306; platform_system=="Windows"
 
+# PDF Reader MCP 依赖
+PyPDF2>=3.0.0
 
+# 【猫娘修改】同步 pyproject.toml 依赖，版本升级至 v0.5.1，新增 playwright 依赖。【修改时间】：2026-05-16 11:00:00。

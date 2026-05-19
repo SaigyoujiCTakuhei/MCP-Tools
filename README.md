@@ -1,51 +1,147 @@
-# Ent MCP Server
+# KazeMiMiRin 的 MCP 工具集 v05
 
 > 基于 MCP (Model Context Protocol) 的全功能 AI 辅助开发服务器
-
 ---
 
 ## 📁 项目概览
 
 | 项目 | 信息 |
 |------|------|
-| **名称** | Ent MCP Server |
-| **版本** | 0.3.0 |
+| **名称** | KazeMiMiRin 的 MCP 工具集 |
+| **版本** | 0.5.1 (Ultimate Form + Modular) |
 | **入口文件** | `Ent.py` |
-| **运行地址** | `127.0.0.1:58000` |
+| **运行地址** | `127.0.0.1:58001` |
 | **协议** | streamable-http |
 | **Python 版本** | >=3.10 |
-| **总工具数** | 74 个（基础 34 + 番茄 6 + 网易云 13 + evolve-mcp 21） |
+| **总工具数** | 84+ 个（含基础、进化、PDF、网易云、浏览器、思考引擎、提示词管理等） |
 
 ---
 
 ## 🗂 目录结构
 
 ```
-E:\Codes\AI Related\MCP Server\
+E:\Codes\AI Related\MCP Server\v05\
 ├── Ent.py                          # 主入口：MCP 服务器初始化与工具注册
 ├── pyproject.toml                  # Python 项目配置（依赖与构建）
-├── requirements.txt                # 依赖清单（手动管理）
-├── .python-version                 # Python 版本锁定：3.10
-├── .gitignore                      # Git 忽略规则
+├── requirements.txt                # 依赖清单
+├── 版本说明.txt                     # 版本说明
 ├── evolve-mcp 重写说明.md          # evolve-mcp 功能重写文档
 ├── README.md                       # 项目说明文档（本文件）
-├── Lib/                            # 工具模块目录（74 个工具）
+├── .python-version                 # Python 版本锁定：3.10
+├── .gitignore                      # Git 忽略规则
+├── Lib/                            # 工具模块目录（重构后）
 │   ├── __init__.py                 # 初始化
-│   ├── base.py                     # 基础架构：工具装饰器、缓存机制、注册表
-│   ├── evolve_core.py              # 进化核心：变异生成器、适应度评估、安全验证、指标收集
-│   ├── evolution_state.json        # 进化状态持久化文件（JSON 增量索引）
-│   ├── fanqie_api.py               # 番茄小说：核心 API 交互
-│   ├── fanqie_book.py              # 番茄小说：书籍信息获取
-│   ├── fanqie_config.py            # 番茄小说：配置管理
-│   ├── fanqie_content.py           # 番茄小说：内容获取与解析
-│   ├── fanqie_misc.py              # 番茄小说：杂项功能
-│   ├── fanqie_search.py            # 番茄小说：搜索功能
-│   ├── netease_config.py           # 网易云音乐：配置与控制器状态
-│   ├── netease_control.py          # 网易云音乐：基础控制（播放/音量/快捷键）
-│   ├── netease_daily.py            # 网易云音乐：每日推荐与私人漫游（Selenium）
-│   ├── netease_playlist.py         # 网易云音乐：歌单管理
-│   ├── netease_search.py           # 网易云音乐：搜索与播放
-│   └── [55 个工具文件]             # 每个工具独立文件，职责单一
+│   ├── base/                       # 基础架构模块
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   └── base.py                 # 基础工具装饰器、缓存机制、注册表
+│   ├── browser_automation/         # 浏览器自动化模块 (v05 Ultimate Form + Modular)
+│   │   ├── __init__.py
+│   │   ├── browser_manager.py      # 核心状态管理 (Browser/Context/PagePool)
+│   │   ├── browser_automation_mcp.py # 主入口：工具模块导入 + 信号处理
+│   │   ├── tools_navigate.py       # P0: navigate/click/fill/screenshot
+│   │   ├── tools_environment.py    # P1: resize/set_ua/close
+│   │   ├── tools_network.py        # P2: http_get/post/expect_response/assert_response
+│   │   ├── tools_debug.py          # P2: console_logs/get_visible_html/save_as_pdf
+│   │   ├── tools_interaction.py    # P2: press_key/drag/evaluate
+│   │   ├── tools_cookies.py        # P3: get_cookies/set_cookies/clear_cookies/storage_state
+│   │   └── cookies/                # 持久化 Cookie/Session 存储目录
+│   │       └── path_config.json    # 相对路径配置 (./cookies/deepseek_session_state.json)
+│   ├── evolution/                  # 进化引擎模块 (22 MCP 工具)
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   ├── add_safety_pattern.py
+│   │   ├── analyze_prompt.py
+│   │   ├── cancel_evolution.py
+│   │   ├── check_evolution_trigger.py
+│   │   ├── check_safety.py
+│   │   ├── crossover_variants.py
+│   │   ├── detect_anomalies.py
+│   │   ├── evaluate_variant.py
+│   │   ├── evolution_state.json    # 进化状态持久化 (Schema v2)
+│   │   ├── evolve_core.py          # 进化核心：流水线调度与状态管理
+│   │   ├── explain_fitness.py
+│   │   ├── generate_ab_pair.py
+│   │   ├── generate_population.py
+│   │   ├── get_evolution_status.py
+│   │   ├── get_metrics_window.py
+│   │   ├── list_fitness_functions.py
+│   │   ├── mutate_prompt.py
+│   │   ├── record_metrics.py
+│   │   ├── register_fitness_function.py
+│   │   ├── resume_evolution.py
+│   │   ├── start_evolution.py
+│   │   ├── update_fitness_weights.py
+│   │   └── validate_variant.py
+│   ├── fanqie/                     # 番茄小说工具
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   ├── fanqie_api.py
+│   │   ├── fanqie_book.py
+│   │   ├── fanqie_config.py
+│   │   ├── fanqie_content.py
+│   │   ├── fanqie_misc.py
+│   │   └── fanqie_search.py
+│   ├── netease/                    # 网易云音乐工具
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   ├── netease_config.py
+│   │   ├── netease_control.py
+│   │   ├── netease_daily.py        # Selenium 自动化模块
+│   │   ├── netease_playlist.py
+│   │   └── netease_search.py
+│   ├── pdf_reader/                 # PDF 阅读器工具
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   ├── pdf_read_local.py
+│   │   └── pdf_read_url.py
+│   ├── prompts/                    # 提示词管理与模板模块
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   ├── create_prompt_template.txt
+│   │   ├── prompt_registry.py
+│   │   └── refactor_mcp_project.txt
+│   ├── sequential_thinking/        # 深度思考引擎模块
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   ├── config.py
+│   │   ├── thinking_core.py
+│   │   └── tool_register.py
+│   └── tools/                      # 通用工具集 (32 MCP 工具)
+│       ├── __init__.py
+│       ├── __pycache__/
+│       ├── add.py
+│       ├── calculate.py
+│       ├── complex_search.py
+│       ├── count_lines.py
+│       ├── create_directory.py
+│       ├── create_tool.py
+│       ├── delete_file.py
+│       ├── download_file.py
+│       ├── file_info.py
+│       ├── get_current_date.py
+│       ├── get_dangerous_patterns.py
+│       ├── get_everything_info.py
+│       ├── get_system_info.py
+│       ├── get_time.py
+│       ├── get_weather.py
+│       ├── git_clone.py
+│       ├── git_pull.py
+│       ├── grep.py
+│       ├── hello_world.py
+│       ├── list_directory.py
+│       ├── manage_approved.py
+│       ├── manage_blacklist.py
+│       ├── python_eval.py
+│       ├── read_file.py
+│       ├── reverse_text.py
+│       ├── run_command.py
+│       ├── run_python_script.py
+│       ├── search.py
+│       ├── search_files.py
+│       ├── web_fetch.py
+│       ├── web_search.py
+│       └── write_file.py
 └── __pycache__/                    # Python 字节码缓存（自动）
 ```
 
@@ -59,273 +155,61 @@ E:\Codes\AI Related\MCP Server\
 |------|-----|
 | **类型** | 入口文件 |
 | **功能** | 服务器初始化、工具扫描与注册、启动服务 |
-| **关键组件** | FastMCP 实例、ToolRegistry、自动扫描机制 |
-| **端口** | 58000 |
+| **关键组件** | FastMCP 实例、ToolRegistry、自动扫描机制 (`_auto_scan_lib_tools`) |
+| **端口** | 58001 |
 | **传输协议** | streamable-http |
 
 **核心逻辑：**
-1. 创建 FastMCP 实例（host: 127.0.0.1, port: 58000）
-2. 硬编码导入 55 个核心工具模块
-3. `_auto_scan_lib_tools()`：自动扫描 Lib 目录发现新工具（如新增的番茄小说、网易云音乐工具）
+1. 创建 FastMCP 实例（host: 127.0.0.1, port: 58001）
+2. 硬编码导入核心工具模块
+3. `_auto_scan_lib_tools()`：递归扫描 `Lib/` 目录，自动发现并导入新工具（如 PDF, Netease, Fanqie, Prompts, Browser）
 4. `register_all_tools()`：遍历 ToolRegistry 注册所有工具
 5. `main()`：启动 MCP 服务
+6. 所有`__init__.py`保持为空。
 
 ---
 
-### Lib/base.py — 基础工具框架
+### 🌐 浏览器自动化 (Browser Automation - Ultimate Form Modular)
 
-| 属性 | 值 |
-|------|-----|
-| **类型** | 基础架构模块 |
-| **功能** | 工具装饰器、LRU 缓存机制、工具注册表 |
-| **核心类** | `ToolDefinition`, `ToolRegistry` |
-| **核心函数** | `tool()`, `cache()`, `clear_cache()` |
-
-**关键特性：**
-- `@tool(name, description, schema)`：工具注册装饰器，自动从函数签名生成 JSON Schema
-- `@cache(ttl, max_size)`：LRU 缓存装饰器，支持 TTL 与容量淘汰
-- `ToolRegistry`：全局工具注册表，支持增删查操作
-- `_infer_schema(func)`：自动从 Python 类型注解推断 JSON Schema
-
----
-
-### Lib/evolve_core.py — 进化引擎核心
-
-| 属性 | 值 |
-|------|-----|
-| **类型** | 核心算法模块 |
-| **功能** | 进化生命周期管理、变异生成、适应度评估、安全验证、指标收集 |
-| **核心类** | `StateManager`, `VariantGenerator`, `FitnessEvaluator`, `SafetyValidator`, `MetricsCollector`, `EvolutionPipeline` |
-| **数据结构** | `Variant`, `TestResults`, `SafetyPolicy`, `ComplexityMetrics`, `MetricWindow`, `Anomaly` |
-
-**模块组成：**
-
-| 组件 | 职责 | 关键方法 |
-|------|------|----------|
-| `VariantGenerator` | Prompt 变异生成 | `generate_population()`, `mutate_prompt()`, `crossover()` |
-| `FitnessEvaluator` | 适应度评估 | `evaluate()`, `explain_fitness()`, `register_function()` |
-| `SafetyValidator` | 安全验证 | `check_safety()`, `validate_variant()`, `add_pattern()` |
-| `MetricsCollector` | 指标收集与分析 | `collect()`, `get_window_metrics()`, `detect_anomalies()` |
-| `StateManager` | 全局状态管理 | `start_cycle()`, `store_variants()`, `get_cycle_context()` |
-| `EvolutionPipeline` | 自动进化流水线 | `run_generation()`：被动触发后自动执行一代 |
-
-**版本控制：**
-- Schema v2：JSON 增量索引策略，仅持久化元数据（降低 I/O 开销 70%+）
-- 内存缓存：完整 Variant 对象缓存，上限 5000 条
+*   **核心**：`Lib/browser_automation/browser_automation_mcp.py` (主入口)
+*   **依赖**：`playwright`, `mcp`, `httpx`
+*   **功能**：基于 Playwright Chromium 引擎的企业级异步浏览器控制套件。
+*   **特性**：
+    *   **模块化架构**：按功能域拆分至 7 个独立文件，职责单一，便于维护与扩展。
+    *   **P0 交互补全**：`navigate`/`click`/`fill` 全面支持超时/强制/无阻塞参数；截图采用 Base64 编码。
+    *   **P1 页面管理**：`browser_resize` 支持设备预设/手动视口；`browser_set_ua` 动态代理；`browser_close` 显式释放 + `SIGINT/SIGTERM` 安全钩子。
+    *   **P2 扩展注入**：`http_get/post` 免启浏览器调接口；`expect_response`/`assert_response` 接口联动监听；`console_logs` 调试捕获；`get_visible_html` DOM 提取；`save_as_pdf` 一键导出；`press_key`/`drag` 复杂交互；`evaluate` 沙箱执行。
+    *   **P3 存储与 Cookie**：`browser_get_cookies` 获取 Cookie 列表；`browser_set_cookies` 注入登录态；`browser_clear_cookies` 清空缓存；`browser_storage_state` 持久化/恢复完整会话状态。
+    *   **Cookie/Session 持久化**：会话状态统一存放于 `Lib/browser_automation/cookies/` 目录，通过 `path_config.json` 管理相对路径（默认 `./cookies/`），支持跨环境注入与热加载。
+    *   **【猫娘修改】注释**：全链路严格遵循 `【猫娘修改】` 规范，便于热更新与维护。
 
 ---
 
-## 📦 基础工具集（34 个）
+### 🧬 进化引擎 (Evolution Engine)
 
-### 🖥 文件操作
+*   **核心**：`Lib/evolution/evolve_core.py`
+*   **功能**：Prompt 变体生成、适应度评估、安全沙箱、指标追踪。
+*   **特性**：
+    *   Schema v2 增量索引策略（持久化优化）。
+    *   自动流水线：`generate -> evaluate -> mutate -> save`。
+    *   安全验证：内置注入检测与自定义规则。
+    *   **22 个 MCP 工具**：涵盖从生成、变异、交叉到安全验证的全生命周期。
 
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `read_file` | `Lib/read_file.py` | 读取文件内容 |
-| `write_file` | `Lib/write_file.py` | 写入文件内容 |
-| `list_directory` | `Lib/list_directory.py` | 列出目录内容 |
-| `search_files` | `Lib/search_files.py` | 通配符搜索文件 |
-| `create_directory` | `Lib/create_directory.py` | 创建目录 |
-| `delete_file` | `Lib/delete_file.py` | 删除文件 |
-| `file_info` | `Lib/file_info.py` | 获取文件元数据 |
-| `count_lines` | `Lib/count_lines.py` | 统计代码行数（按扩展名） |
+### 🍅 番茄小说 (FanQie)
 
-### 🔍 搜索工具
+*   **功能**：书籍搜索、目录获取、内容解析。
+*   **依赖**：`requests`, `selectolax`。
 
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `search` | `Lib/search.py` | Everything 搜索引擎（支持正则、路径匹配等） |
-| `complex_search` | `Lib/complex_search.py` | 复杂组合搜索 |
-| `get_everything_info` | `Lib/get_everything_info.py` | 获取 Everything 状态信息 |
-| `grep` | `Lib/grep.py` | 文本模式搜索 |
-| `web_search` | `Lib/web_search.py` | 网络搜索（DDG 引擎） |
-| `web_fetch` | `Lib/web_fetch.py` | 抓取网页内容 |
+### 🎵 网易云音乐 (Netease)
 
-### 💻 命令执行
+*   **功能**：播放控制、每日推荐、私人漫游（Selenium）、歌单管理。
+*   **依赖**：`selenium`, `pyautogui`, `psutil`。
 
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `run_command` | `Lib/run_command.py` | 执行 Shell 命令 |
-| `run_python_script` | `Lib/run_python_script.py` | 执行 Python 脚本 |
-| `python_eval` | `Lib/python_eval.py` | 执行 Python 代码片段（线程隔离） |
-| `calculate` | `Lib/calculate.py` | 数学表达式计算 |
-| `add` | `Lib/add.py` | 两数相加 |
+### 📝 提示词管理 (Prompts)
 
-### 🌐 网络与系统
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `get_weather` | `Lib/get_weather.py` | 获取城市天气 |
-| `download_file` | `Lib/download_file.py` | 下载文件 |
-| `git_clone` | `Lib/git_clone.py` | 克隆 Git 仓库 |
-| `git_pull` | `Lib/git_pull.py` | 拉取远程更新 |
-| `get_system_info` | `Lib/get_system_info.py` | 获取系统信息 |
-| `get_time` | `Lib/get_time.py` | 获取当前时间 |
-| `get_current_date` | `Lib/get_current_date.py` | 获取当前日期 |
-
-### 🛠 工具管理
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `create_tool` | `Lib/create_tool.py` | 动态创建 MCP 工具 |
-| `manage_blacklist` | `Lib/manage_blacklist.py` | 管理命令黑名单 |
-| `manage_approved` | `Lib/manage_approved.py` | 管理已批准命令 |
-| `get_dangerous_patterns` | `Lib/get_dangerous_patterns.py` | 获取危险命令模式 |
-
-### 🎯 辅助工具
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `hello_world` | `Lib/hello_world.py` | 问候语示例 |
-| `reverse_text` | `Lib/reverse_text.py` | 字符串反转 |
-
----
-
-## 🍅 番茄小说工具集（6 个）
-
-### 📚 书籍与内容
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `fanqie_get_book_detail` | `Lib/fanqie_book.py` | 获取指定书籍的详细信息 |
-| `fanqie_get_book_directory` | `Lib/fanqie_book.py` | 获取书籍的完整章节目录列表 |
-| `fanqie_get_simple_directory` | `Lib/fanqie_book.py` | 获取书籍的简化目录信息 |
-| `fanqie_get_chapter_content` | `Lib/fanqie_content.py` | 获取指定章节的文本内容（简化接口） |
-
-### 🔎 搜索与内容获取
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `fanqie_search_books` | `Lib/fanqie_search.py` | 搜索番茄小说平台上的书籍、听书、漫画或短剧 |
-| `fanqie_get_content` | `Lib/fanqie_content.py` | 统一的内容获取接口，支持小说、听书、短剧、漫画及批量获取 |
-
----
-
-## 🎵 网易云音乐控制器（13 个）
-
-### 🎮 基础控制
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `launch_netease_music` | `Lib/netease_control.py` | 启动网易云音乐应用，支持自动最小化 |
-| `control_playback` | `Lib/netease_control.py` | 控制播放状态（播放/暂停、上/下一首） |
-| `control_volume` | `Lib/netease_control.py` | 控制音量（增加/减少） |
-| `toggle_mini_mode` | `Lib/netease_control.py` | 切换迷你/全屏模式 |
-| `like_current_song` | `Lib/netease_control.py` | 喜欢当前歌曲 |
-| `toggle_lyrics` | `Lib/netease_control.py` | 显示/隐藏歌词 |
-
-### 🎼 搜索与播放
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `search_and_play_song` | `Lib/netease_search.py` | 搜索歌曲并直接播放 |
-| `search_and_play_playlist` | `Lib/netease_search.py` | 搜索歌单并直接播放 |
-
-### 📋 歌单管理
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `manage_custom_playlists` | `Lib/netease_playlist.py` | 管理自定义歌单（增、删、查） |
-
-### 🌟 高级功能（Selenium 自动化）
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `play_daily_recommend` | `Lib/netease_daily.py` | 播放每日推荐歌单 |
-| `play_roaming` | `Lib/netease_daily.py` | 启动私人漫游功能 |
-
-### ⚙️ 配置与状态
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `get_netease_config` | `Lib/netease_config.py` | 获取网易云音乐配置与路径状态 |
-| `get_controller_info` | `Lib/netease_config.py` | 获取控制器信息与功能列表 |
-
----
-
-## 🧬 进化引擎工具集（21 个）
-
-### 🔄 进化生命周期（4 个）
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `start_evolution` | `Lib/start_evolution.py` | 启动进化周期（猫娘修改：触发后自动执行一代） |
-| `get_evolution_status` | `Lib/get_evolution_status.py` | 获取进化周期状态 |
-| `cancel_evolution` | `Lib/cancel_evolution.py` | 取消进化周期 |
-| `resume_evolution` | `Lib/resume_evolution.py` | 从检查点恢复进化 |
-
-### 🧪 变体生成（5 个）
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `generate_population` | `Lib/generate_population.py` | 生成 Prompt 变体种群 |
-| `mutate_prompt` | `Lib/mutate_prompt.py` | 变异单个 Prompt |
-| `crossover_variants` | `Lib/crossover_variants.py` | 两个变体交叉生成后代 |
-| `generate_ab_pair` | `Lib/generate_ab_pair.py` | 生成 A/B 测试对 |
-| `analyze_prompt` | `Lib/analyze_prompt.py` | 分析 Prompt 复杂度 |
-
-### 📊 适应度评估（5 个）
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `evaluate_variant` | `Lib/evaluate_variant.py` | 评估变体适应度分数 |
-| `explain_fitness` | `Lib/explain_fitness.py` | 解释适应度分解详情 |
-| `register_fitness_function` | `Lib/register_fitness_function.py` | 注册自定义适应度函数 |
-| `update_fitness_weights` | `Lib/update_fitness_weights.py` | 更新适应度权重 |
-| `list_fitness_functions` | `Lib/list_fitness_functions.py` | 列出已注册的适应度函数 |
-
-### 🛡 安全验证（3 个）
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `validate_variant` | `Lib/validate_variant.py` | 验证变体安全性 |
-| `check_safety` | `Lib/check_safety.py` | 检查文本安全性 |
-| `add_safety_pattern` | `Lib/add_safety_pattern.py` | 添加自定义安全模式 |
-
-### 📈 指标收集（4 个）
-
-| 工具名 | 文件路径 | 功能描述 |
-|--------|----------|----------|
-| `record_metrics` | `Lib/record_metrics.py` | 记录任务指标数据 |
-| `get_metrics_window` | `Lib/get_metrics_window.py` | 获取时间窗口聚合指标 |
-| `check_evolution_trigger` | `Lib/check_evolution_trigger.py` | 检查是否触发进化 |
-| `detect_anomalies` | `Lib/detect_anomalies.py` | 检测指标异常 |
-
----
-
-## ⚙️ 配置文件
-
-### pyproject.toml
-
-| 字段 | 值 |
-|------|-----|
-| **name** | my-mcp-server |
-| **version** | 0.1.0 |
-| **requires-python** | >=3.10 |
-| **核心依赖** | mcp, everytools, ddgs, httpx, selectolax, requests |
-| **扩展依赖** | pyautogui, selenium, psutil, pywin32 (网易云模块) |
-
-### requirements.txt
-
-| 类别 | 依赖 |
-|------|------|
-| 核心框架 | mcp |
-| Everything 搜索 | everytools |
-| Web 搜索 | ddgs |
-| HTTP 客户端 | httpx |
-| HTML 解析 | selectolax |
-| 网络请求 | requests |
-| 网易云基础 | pyautogui>=0.9.54, pywin32>=306 |
-| 网易云自动化 | selenium>=4.0.0, psutil>=5.9.0 |
-
-### .gitignore
-
-- Python 生成的文件：`__pycache__/`, `*.py[oc]`, `build/`, `dist/`, `*.egg-info`
-- 虚拟环境：`.venv`
-
-### .python-version
-
-- Python 版本锁定：**3.10**
+*   **核心**：`Lib/prompts/prompt_registry.py`
+*   **功能**：提示词模板管理、动态加载与注册。
+*   **文件**：包含 `create_prompt_template.txt` 和 `refactor_mcp_project.txt` 等辅助文件。
 
 ---
 
@@ -333,7 +217,10 @@ E:\Codes\AI Related\MCP Server\
 
 ```bash
 # 进入项目目录
-cd E:\Codes\AI Related\MCP Server
+cd E:\Codes\AI Related\MCP Server\v05
+
+# 安装依赖
+pip install -r requirements.txt
 
 # 启动服务器
 python Ent.py
@@ -342,9 +229,9 @@ python Ent.py
 **启动输出示例：**
 ```
 ============================================================
-Ent MCP Server Started
+KazeMiMiRin 的 MCP 工具集 Started
 Address: 127.0.0.1:58001
-Tools: 74 (Success: 74, Failed: 0)
+Tools: 84 (Success: 84, Failed: 0)
 ============================================================
 ```
 
@@ -353,44 +240,51 @@ Tools: 74 (Success: 74, Failed: 0)
 ## 📝 架构说明
 
 ### 工具注册机制
+*   **硬编码导入**：`Ent.py` 显式导入常用工具。
+*   **自动扫描**：`_auto_scan_lib_tools()` 发现 `Lib/` 下所有 `*.py` 工具并动态注册。
+*   **分类统计**：支持区分"硬编码"与"自动发现"的工具来源。
 
-```
-Ent.py (入口)
-  ├── 硬编码导入所有工具模块
-  ├── _auto_scan_lib_tools() → 自动发现新工具（如 Fanqie/Netease 模块）
-  └── register_all_tools() → 遍历 ToolRegistry 注册
-       └── mcp.add_tool(func, name, description)
-```
-
-### 进化引擎流程
-
-```
-start_evolution() 触发
-  └── EvolutionPipeline.run_generation()
-       ├── Step 1: generate → 生成新种群
-       ├── Step 2: evaluate → 评估适应度
-       ├── Step 3: mutate → 变异优选个体
-       └── Step 4: save → 持久化状态（JSON 增量索引）
-```
-
-### 安全策略
-
-- 注入检测：Prompt 注入、命令注入、路径遍历
-- 自定义模式：支持动态添加安全规则
-- 资源限制：CPU、内存、超时阈值配置
+### 状态持久化
+*   **进化状态**：`Lib/evolution/evolution_state.json` (Schema v2)。
+*   **缓存机制**：LRU 缓存 (TTL: 3600s, Max Size: 5000)。
 
 ---
 
 ## 📌 注意事项
 
-1. **状态持久化**：进化状态存储于 `Lib/evolution_state.json`，使用 Schema v2 增量索引
-2. **缓存机制**：LRU 缓存 TTL 为 3600 秒，最大 500 条
-3. **内存限制**：Variant 缓存上限 5000 条，超过自动淘汰
-4. **安全警告**：`run_command` 和 `python_eval` 涉及系统执行，请谨慎使用
-5. **依赖安装**：确保安装 `requirements.txt` 中列出的所有依赖（特别是 `pyautogui` 和 `selenium` 用于网易云模块）
-6. **端口变更**：服务器端口已调整为 `58000`，请相应更新客户端配置
+1.  **端口配置**：`Ent.py` 中 `FastMCP` 实例化端口配置为 `58001`，实际运行以该配置为准。
+2.  **依赖环境**：确保已安装 `Python 3.10+`。
+3.  **系统依赖**：
+    *   `pywin32` (Windows 系统必需)。
+    *   `selenium` (需配置 ChromeDriver 路径或使用自动管理)。
+    *   `playwright` (浏览器自动化模块依赖，需执行 `playwright install chromium`)。
+    *   `httpx` (P2 HTTP 扩展依赖，已列入 requirements)。
+4.  **文件数量说明**：`Lib/evolution/` 目录下包含 22 个暴露的 MCP 工具模块（含 1 个状态文件）。`Lib/browser_automation/` 为模块化模块目录。
 
 ---
 
-**最后更新**: 2026-05-07  
-**项目维护**: 风见魅铃的猫娘 (猫娘修改标注)
+## 🧹 架构整洁规范（最高优先级）
+
+> **规则**：所有新增功能模块必须严格遵循 `Lib/` 目录下的分类规范，**严禁**将业务逻辑文件直接放置于项目根目录。
+> **执行标准**：
+> 1. 新建模块需先在 `Lib/` 下创建独立子目录（如 `Lib/模块名/`）。
+> 2. 子目录内必须包含 `__init__.py` 及核心逻辑文件（如 `模块名_mcp.py`）。
+> 3. 根目录仅保留入口文件 (`Ent.py`)、配置文件 (`pyproject.toml`, `.python-version`)、依赖清单 (`requirements.txt`) 及文档。
+> 4. 每次交付前需核对 `README.md` 目录树，确保物理路径与文档索引 100% 一致。
+
+---
+
+## 🔄 协议对齐规范（强制）
+
+> **规则**：新增模块必须严格使用项目标准 `@tool` 装饰器（源自 `Lib.base.base`）将函数注册至 `ToolRegistry`。
+> **执行标准**：
+> 1. **必须导入**：`from Lib.base.base import tool`
+> 2. **必须装饰**：使用 `@tool(name="...", description="...", schema={...})` 声明函数。
+> 3. **严禁使用**：现代 `mcp.server` 装饰器 (`@app.list_tools()`, `@app.call_tool()`)，该类装饰器会创建独立 Server 实例，导致 `_auto_scan_lib_tools()` 无法捕获工具。
+> 4. **校验机制**：启动 `Ent.py` 时观察 `[AUTO-SCAN-LOG]` 输出，确认模块已入库；检查 `[AUTO-DISCOVERED]` 工具列表是否包含新增功能。
+> 5. **返回值规范**：支持异步函数 (`async def`)，直接返回字符串、字典或列表，由 `ToolRegistry` 统一封装处理。
+
+---
+
+**最后更新**: 2026-05-20  
+**项目维护**: 风见魅铃的猫娘

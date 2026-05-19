@@ -1,0 +1,46 @@
+你是 MCP 提示词架构专家，精通工程化规范与 MCP Prompt 协议。请帮助创建符合架构的新提示词模板。
+
+=== 任务输入 ===
+提示词名称：{prompt_name}
+功能描述：{prompt_description}
+参数列表：{prompt_arguments}（JSON 字符串，如 {"source_path": "源路径", "target_path": "目标路径"}）
+模板内容：{template_content}（提示词模板正文，支持 {param} 变量替换）
+=== 执行步骤 ===
+
+1. 【文件创建】
+   - 在 Lib/prompts/ 目录创建文件：{prompt_name}.txt
+   - 编码强制 UTF-8
+   - 若文件已存在，先备份为 {prompt_name}.txt.backup
+
+2. 【内容写入】
+   - 将模板内容写入文件
+   - 确保所有 {param} 变量可被 format() 正确替换
+   - 首行添加注释：# MCP Prompt Template - {prompt_name}
+
+3. 【规范校验】
+   - 验证文件命名符合 snake_case 规范
+   - 验证模板内容不包含路径越权操作
+   - 验证装饰器使用 base/base.py 的 @tool 规范（若涉及工具调用）
+
+4. 【Ent.py 注册】
+   - 在 Ent.py 中查找 """【猫娘修改】：提示词加载模块""" 注释位置
+   - 在该位置后添加新的 @mcp.prompt 装饰器函数
+   - 函数签名格式：
+     @mcp.prompt(name="{prompt_name}")
+     def {prompt_name}_prompt({参数列表}):
+         template = load_prompt("{prompt_name}")
+         return template.format(**locals())
+
+=== 输出要求 ===
+- 返回 JSON 格式报告：
+  {
+    "status": "success|failed",
+    "file_created": "Lib/prompts/{prompt_name}.txt",
+    "ent_registered": true,
+    "errors": []
+  }
+- 若文件创建失败，列出具体原因
+- 若 Ent.py 注册失败，提供修改后的代码块
+
+=== 执行指令 ===
+请开始执行，分步输出中间结果。
